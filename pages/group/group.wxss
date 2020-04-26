@@ -1,0 +1,144 @@
+.group {
+  width: 100%;
+  height: 100%;
+}
+.group .group_header{
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+}
+.group .group_header >view {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 88rpx;
+  background: #fff;
+  font-size: 28rpx;
+  color: #353535;
+  box-shadow: 0px 1rpx 0px 0px rgba(229, 229, 229, 1);
+}
+
+.group .group_active {
+  color: #fe8f71;
+  line-height: 88rpx;
+}
+
+.group .group_active .active {
+  height: 4rpx;
+  width: 60%;
+  margin: 0 auto;
+  background: #fe8f71;
+}
+
+.assembleOrderItem {
+  margin: 20rpx 0;
+}
+
+.modal_users {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin: 20rpx 0;
+}
+
+.modal_users_item {
+  margin: 10rpx;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal_users_item_text {
+  color: #888;
+  font-size: 24rpx;
+  margin-top: 4rpx;
+  width: 100rpx;
+  text-align: center;
+}
+
+.modal_users_item_img {
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 50%;
+  background: #ddd;
+}
+
+.modal_users_item_img.add {
+  border: 1px dotted #ddd;
+  background: none !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ddd;
+}
+
+.modal_users_item_tag {
+  position: absolute;
+  top: -10rpx;
+  background: linear-gradient(-90deg, rgba(254, 143, 113, 1), rgba(254, 203, 164, 1));
+  color: #fff;
+  font-size: 20rpx;
+  width: 60rpx;
+  text-align: center;
+  border-radius: 14rpx;
+}
+
+.modal_box_content {
+  padding: 0 0 20rpx;
+}
+
+.modal_content_title {
+  text-align: center;
+  background: #fffbf9;
+  line-height: 90rpx;
+  border-top-left-radius: 20rpx;
+  border-top-right-radius: 20rpx;
+  box-shadow: 0px 1rpx 0px 0px rgba(229, 229, 229, 1);
+}
+
+.modal_cancel {
+  width: 48rpx;
+  height: 48rpx;
+  position: absolute;
+  bottom: -100rpx;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.modal_end {
+  padding: 30rpx 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal_end view {
+  color: #353535;
+  font-size: 28rpx;
+  margin-top: 20rpx;
+}
+
+.modal_end_img {
+  width: 232rpx;
+  height: 232rpx;
+}
+
+.modal_end_btns {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  line-height: 100rpx;
+  border-top: 1px solid #e5e5e5;
+}
+
+.modal_end_btns view {
+  flex: 1;
+  text-align: center;
+}
+
+.modal_end_btns view+view {
+  border-left: 1px solid #e5e5e5;
+}

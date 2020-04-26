@@ -1,0 +1,19 @@
+<import src="../../wxParse/wxParse.wxml" />
+<view class="foodDetail_container">
+  <view class="dishesWrap" style="background-image:url('{{staticimg}}cai_remark_top_bg.png')">
+    <image class="dishesimage" mode="aspectFit" src="{{headimg+selectitem.thumbpath}}" animation="{{animation}}"></image>
+    <view class="dishes_content">
+      <view class="title_wrap">
+        <text class="dishes_title">{{selectitem.name}}</text>
+        <view class="title_line" style="width:{{namewidth}}rpx" />
+      </view>
+      <view class="descript_con">
+        <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+      </view>
+    </view>
+  </view>
+  <image class="bottom_bg" src="../pic/bottom_bg.png" style="bottom:{{isIphoneX ? '188rpx':'120rpx'}}"></image>
+  <view class="dishesbtn {{isIphoneX ? 'fix-iphonex-button' : ''}}" catchtap="action">
+    <text>我们开始吧</text>
+  </view>
+</view>

@@ -1,0 +1,12 @@
+<import src="../../wxParse/wxParse.wxml" />
+<view class="book_detail_container">
+  <view class="header" style="background-image:url('{{staticimg}}cai_remark_top_bg.png')">
+    <image class="food_img" mode="aspectFit" src="{{headimg+detail.finishthumb}}" />
+  </view>
+  <view class="dishes_content">
+    <view class="descript_con">
+      <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+    </view>
+  </view>
+  <image class="page_bottom" src="../pic/page_bottom.png" />
+</view>

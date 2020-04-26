@@ -1,0 +1,25 @@
+<view class='container' style="background-image:url('{{staticimg}}my_prize_bg.png')">
+  <view class="Header_top">已获得奖品: {{totals||0}}个</view>
+  <view class="list_header">
+    <text>奖项</text>
+    <text>奖品详情</text>
+    <text>时间</text>
+
+  </view>
+  <scroll-view scroll-y bindscrolltolower='bindscrolltolower' class="invitationList">
+    <block wx:for='{{list}}' wx:key="{{index}}">
+      <view class="list">
+        <text class="wes_1">{{item.award.name}}</text>
+
+        <text class="wes_1" wx:if="{{item.award.type === 1}}">{{item.award.prizename || '-'}}</text>
+        <text class="wes_1" wx:elif="{{item.award.type === 2}}">{{item.award.score || '-'}}积分</text>
+        <text class="wes_1" wx:elif="{{item.award.type === 3}}">谢谢惠顾</text>
+        <text class="wes_1">{{item.award.updateDate}}</text>
+      </view>
+    </block>
+  </scroll-view>
+  <view class="btn_group flex_sa">
+    <button class="common_btn" catchtap="back" style="background-image:url('{{staticimg}}btn_small_bg.png')">继续抽奖</button>
+    <button open-type="share" class="common_btn" style="background-image:url('{{staticimg}}btn_small_bg.png')">分享</button>
+  </view>
+</view>

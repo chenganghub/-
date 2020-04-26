@@ -1,0 +1,66 @@
+<view class='cartcontainer'>
+	<view class="cart_top" bindtap="deleteAll">
+		<text>共{{Listlength}}种商品</text>
+		<view>
+			<image src="../pic/cartdel.png"></image>删除
+		</view>
+
+	</view>
+	<view wx:if='{{list.length>0}}' class='wrap'>
+		<block wx:for='{{list}}'>
+			<view class="iteminfo flex_sb   {{item.flag==1||item.state==1? 'test':''}}" data-id='{{item.id}}' data-index="{{index}}" data-check='{{item.check}}' catchlongpress="delcarlist">
+				<view wx:if='{{item.flag==1||item.state==1}}' class="error">
+					<image src="../pic/error1.png"></image>
+				</view>
+
+				<view class="item flex_left" bindtap="todetail" data-idx="{{item}}">
+					<view catchtap='switchtap' data-index='{{index}}' data-check='{{item.check}}' data-item="{{item}}" class='switch'>
+						<image class="label_checked" wx:if='{{item.check==1}}' src='../pic/xuanzhong1.png'></image>
+						<view wx:else></view>
+					</view>
+					<image class="product_img" src='{{headimg+item.topimg}}'></image>
+					<view class='word'>
+						<view class='name'>{{item.name}}</view>
+						<view class='sku'><text>{{item.firstspecvalue}}</text><text>{{item.secondspecvalue}}</text></view>
+						<view class="detail">
+							<view> <text class='price'>￥{{item.promotionprice/100}}</text>
+								<text class='price p'>￥{{item.price/100}}</text></view>
+							<view class="goodsNumber" wx:if='{{!(item.flag==1||item.state==1)}}' style="background:{{item.showsaled?saledcolor:''}}">
+								<text data-code="0" catchtap="counttap" data-item='{{item}}'>-</text>
+								<text class="count" catchtap='nothing'>{{item.goodscount}}</text>
+								<text data-code="1" catchtap="counttap" data-item='{{item}}'>+</text>
+							</view>
+						</view>
+					</view>
+				</view>
+
+
+			</view>
+
+		</block>
+	</view>
+
+	<view wx:else class='nolist'>
+		<view class='img'>
+			<image src='../pic/ecart.png'></image>
+		</view>
+		<text class='word'>购物车空空如也~</text>
+		<text catchtap='tomain' class='btn'>去逛逛</text>
+	</view>
+
+	<view class='bottom'>
+		<view class='getall' catchtap='getall'>
+			<image class="label_checked" wx:if='{{getall==1}}' src='../pic/xuanzhong.png'></image>
+			<view wx:else></view>
+			<text>全选</text>
+		</view>
+		<view class='right'>
+			<view class='content'>合计：
+				<text class="price_tag">￥</text>
+				<text>{{(show_totalcount)}}</text>
+			</view>
+			<view catchtap='toconfirm' class='btn'>去结算({{totalnumber}})</view>
+		</view>
+	</view>
+
+</view>

@@ -1,0 +1,169 @@
+<import src="../../wxParse/wxParse.wxml" />
+<view class="container {{showchose ? 'fix_wrap':''}}">
+  <view class="detailcontent">
+    <!-- 轮播start -->
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="{{indicatorColor}}" indicator-active-color="{{activeColor}}" circular="{{circular}}">
+      <block wx:for="{{imgarr}}" wx:key='{{item.index}}'>
+        <swiper-item>
+          <image src="{{item}}" class="slide-image" />
+        </swiper-item>
+      </block>
+    </swiper>
+    <!-- 轮播start -->
+    <view class="goodcontent">
+      <view class="goodName wes_2">{{name}}</view>
+      <view class="goodSituation">
+        <text>￥ {{promotionprice}}</text>
+        <text>￥ {{price}}</text>
+        <!-- <text>库存： {{stock}}</text> -->
+      </view>
+    </view>
+    <!-- 拼团 -->
+    <!-- <view wx:if='{{false}}' class="assemble">
+      <view class="assembleleft">
+        <image src="../pic/spell.png"></image>
+        <view>
+          <text>商品参加拼团活动，快来参加！</text>
+          <view class="time">距结束：
+            <text>147</text>:
+            <text>06</text>:
+            <text>17</text>:
+            <text>39</text>
+          </view>
+        </view>
+      </view>
+      <view class="immediately" catchtap="toassembledetail" data-id="{{id}}">立即开团</view>
+    </view> -->
+    <!-- end 拼团 -->
+    		<view class="big_choice" wx:if="{{typesku==false}}">
+			<view class="choice" catchtap="choicetap">
+				<view class="choicePiece" catchtap="choicetap">
+					<text>选择</text>
+					<text>{{count}}</text>
+					<text>{{goodsunit}}</text>
+				</view>
+				<image src="../pic/right.png"></image>
+			</view>
+		</view>
+		<view class="big_choice" wx:else>
+			<view class="choice" catchtap="choicetap">
+				<view class="choicePiece" catchtap="choicetap">
+					<text>请选择</text>
+					<text style="margin-right:10rpx;">{{selectedSku1}}</text>
+					<text>{{selectedSku2}}</text>
+				</view>
+				<image src="../pic/right.png"></image>
+			</view>
+		</view>
+    <!-- <view class="freight" bindtap="checkfreight">
+      <view class="freightText">
+        <text>运费</text>
+        <text>点击查看</text>
+      </view>
+      <image src="../pic/left.png"></image>
+    </view> -->
+    <!-- <view class="big_box">
+			<view class="sendto" bindtap="receivingAddress">
+				<view class="box_send">
+					<view class="sendtoText">
+						<text>送至</text>
+					</view>
+					<view class="sendtoadress">
+						<image src="../pic/new_location.png"></image>
+						<text>{{address||"请选择收获地址"}}</text>
+					</view>
+				</view>
+				<image class="img" src="../pic/left.png"></image>
+			</view>
+		</view> -->
+    <view class="postage">
+      <image src="../pic/xuanzhong.png"></image>
+      <text>邮费{{postfee/100}}元</text>
+    </view>
+    <view wx:if='{{false}}' class="evaluate">
+      <view class="evaluateText">
+        <image src="../pic/changfangxing.png"></image>
+        <text>评价</text>
+        <text>(0)</text>
+      </view>
+    </view>
+    <view class="details">
+      <view class="detailsText">
+        <!-- <image src="../pic/changfangxing.png"></image> -->
+        <text>商品详情</text>
+      </view>
+    </view>
+    <view class="goodsDetail">
+      <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+    </view>
+  </view>
+  <!-- 底部start -->
+  <view class="position_bottom">
+    <view class="detail_bottom">
+      <view class="bottom">
+        <button class="bottom_icon" open-type="contact">
+          <image src="../pic/serve.png"></image>
+          <text>客服</text>
+        </button>
+        <view class="bottom_icon" catchtap="collectiongoods" data-id="{{id}}">
+          <image src="../pic/{{iscollect?'shoucang':'shoucang2'}}.png"></image>
+          <text>{{iscollect?'已收藏':'收藏'}}</text>
+        </view>
+        <view catchtap="tocart" class="bottom_icon">
+        <view wx:if="{{goodsnums!='。。。'}}" class="bottom_red_icon">{{goodsnums}}</view>
+          <image src="../pic/shopping_car.png"></image>
+          <text>购物车 </text>
+        </view>
+      </view>
+      <view class="addCart" catchtap="btntap" data-code='1'>加入购物车</view>
+      <view class="bayNow" catchtap="btntap" data-code='2'>立即抢购</view>
+    </view>
+  </view>
+  <!-- 底部end -->
+  <view wx:if='{{showchose}}' class='sizewrap'>
+    <view catchtap="closechose" class='mask'></view>
+    <view class='white' style='animation:{{anim}}'>
+      <view class='top'>
+        <image class='thumb' src="{{topimg}}"></image>
+        <view class='topword'>
+          <text>￥{{totalPrice}}</text>
+          <text>库存：{{stock}}</text>
+          <!-- <text>已选：{{count}},共{{count}}{{goodsunit}}</text> -->
+        </view>
+        <view catchtap='closechose' class='close'>
+          <image src="../pic/circle_close.png"></image>
+        </view>
+      </view>
+      <scroll-view class="select_wrap" scroll-y>
+        <block wx:if="{{specList && specList.length}}">
+          <view class='select_item'>
+            <text class="select_title">{{specList[0].specName}}</text>
+            <view class='select_content flex_wrap'>
+              <view class="standard_item {{specList[0].specInfo[specIndex].id === item.id ? 'active':''}}" wx:for="{{specList[0].specInfo}}" wx:key="{{item.id}}" data-index="{{index}}" data-items="{{item}}" bindtap="selectSpec">{{item.specValueName}}</view>
+            </view>
+          </view>
+          <block wx:if="{{specList[0].specInfo[specIndex].detailValue && specList[0].specInfo[specIndex].detailValue.length}}">
+            <view class='select_item'>
+              <text class="select_title">{{specList[0].specInfo[specIndex].detailValue[0].valueSpecName}}</text>
+              <view class='select_content flex_wrap'>
+                <view class="standard_item {{specValue === item.specValueName ? 'active':''}}" wx:for="{{specList[0].specInfo[specIndex].detailValue[0].detailValueInfo}}" wx:key="{{item.id}}" data-items="{{item}}" data-index="{{index}}" bindtap="selectSpecValue">{{item.specValueName}}</view>
+              </view>
+            </view>
+          </block>
+        </block>
+
+        <view class='select_item flex_sb'>
+          <text class="select_title">购买数量</text>
+          <view class='select_count flex'>
+            <view class="count_btn" catchtap='counttap' data-code='0'>-</view>
+            <view class="count">{{count}}</view>
+            <view class="count_btn" catchtap='counttap' data-code='1'>+</view>
+          </view>
+        </view>
+      </scroll-view>
+      <button disabled="{{!stock}}" class="confirm_btn {{!stock ? 'disabled':''}}" bindtap='sizeconfirm'>确定</button>
+    </view>
+  </view>
+  <login-component wx:if="{{showLogin}}" bind:closeModal="closeLogin" bind:openModal="openLogin" />
+</view>
+<button class="btn_contact" open-type="contact"></button>

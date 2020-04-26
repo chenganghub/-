@@ -1,0 +1,19 @@
+<!--pages/shareadd/shareadd.wxml-->
+<form report-submit bindsubmit='formsubmit'>
+  <view>
+    <view class="item">
+      <textarea value="{{contents}}" placeholder="说点什么吧..." bindinput="inputchange" data-prop="contents" maxlength="-1"></textarea>
+      <!-- <view class="hint">{{contents.length}}/100</view> -->
+    </view>
+    <view class="item">
+      <view class="imglist">
+        <view class="position" wx:for="{{imgurls}}" wx:for-item="image">
+          <image class="food_img" mode='aspectFill' src="{{image}}" data-src="{{image}}" bindtap="previewimage" />
+          <image data-index="{{index}}" catchtap="del" class="del" src="../pic/img_close.png" />
+        </view>
+        <image class="food_img" src="../pic/tianjia_1.png" bindtap="chooseimage" wx:if="{{imgurls.length<count}}" />
+      </view>
+    </view>
+    <button form-type='submit' class="subbtn" catchtap="sub" loading="{{uploading}}" disabled="{{uploading}}" hover-class="btn-hover">发布</button>
+  </view>
+</form>

@@ -1,0 +1,55 @@
+<view class="foodMake_container {{isX ? 'iphonexWrap':''}}">
+  <view class="navigationbar" style="height: {{statusHeight+ navHeight}}px">
+    <view class="status" style="height:{{statusHeight}}px"></view>
+    <view class="navbar" style="height:{{navHeight}}px">
+      <view class="back_icon">
+        <image class="icon_img" src="../pic/left_icon.png" bindtap="onBackClick" />
+        <image class="icon_home" src="../pic/backhome.png" bindtap="onBackHomeClick" />
+      </view>
+      <text class="nav_title">{{title}}</text>
+    </view>
+  </view>
+  <view class="bottle" animation="{{ani2}}">
+    <image mode="aspectFit" class="bottle-main" src="{{bottleimg}}" animation="{{ani3}}" />
+    <image wx:if="{{currentSelect === 0}}" mode="aspectFit" class="bottle-transiton {{mainactive ? 'vis_v': ''}}" src="{{waterpng}}" animation="{{ani_water}}" />
+  </view>
+  <canvas wx:if="{{currentSelect === 2}}" class="powder_wrap" canvas-id="snow" animation="{{snowAni}}" />
+  <image class="bgImg" src="{{staticimg}}make_bg_eva.png" style="top:{{statusHeight+ navHeight}}px"></image>
+  <!-- 菜品的展示 -->
+  <view class="foodDetail_con_top">
+    <image class="food_img" src="{{headimg}}{{item.finishthumb}}" mode="aspectFit" />
+  </view>
+  <view class="big_box">
+    <!-- 调料的数量等 -->
+    <view class="foodDetail_con_center">
+      <view class="foodDetail_con_center_list">
+        <view wx:for='{{seasoningList}}' wx:key='index' wx:for-item="item" class="seasoning-item {{item.active ? 'active' : ''}}">
+          {{item.label+" : "+item.mount}}
+        </view>
+      </view>
+    </view>
+    <view class="foodDetail_con_center_btm">
+      <view class="tips_text">点击下面调味料开始调味</view>
+      <view class="foodDetail_con_center_btm_left"></view>
+      <view class="foodDetail_con_center_btm_right"></view>
+    </view>
+    <!-- 调料的种类可添加 -->
+    <view class="foodDetail_con_footer">
+      <view class="list_wrap">
+        <view data-index="{{index}}" catchtap="addSeasoning" data-item="{{item}}" class="foodDetail_con_footer_item  " wx:for='{{condimentlist}}' wx:key='index' wx:for-item="item">
+          <view class="content_wrap flex_c">
+            <view class="foodDetail_con_footer_item_topInner {{item.active ? 'active' : '' }}" animation="{{ani}}">
+              +{{item.step}}
+            </view>
+            <image mode="aspectFit" src="{{item.imgUrl}}" />
+          </view>
+          <view class="foodDetail_con_footer_item_btn">{{item.label}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="action">
+      <button class="reset" catchtap="reset">重置</button>
+      <button class="confirm" catchtap="confrim">确认</button>
+    </view>
+  </view>
+</view>

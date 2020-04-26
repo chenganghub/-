@@ -1,0 +1,33 @@
+<form report-submit bindsubmit='formsubmit'>
+  <view class='addresscontainer'>
+    <view class='wrap'>
+      <view class='item'>
+        <view>收货人</view>
+        <input bindinput="bindinput" data-code='0' value='{{username}}' placeholder='请输入收货人名字'></input>
+      </view>
+      <view class='item'>
+        <view>联系电话</view>
+        <input bindinput="bindinput" data-code='1' maxlength='11' value='{{phone}}' type='number' placeholder='请输入11位手机号'></input>
+      </view>
+      <view class='item r'>
+        <view>选择地区</view>
+        <picker mode="region" bindchange="bindRegionChange">
+      <view class="picker">
+        {{region}}
+      </view>
+      </picker>
+      </view>
+      <view class='item'>
+        <view>联系地址</view>
+        <input bindinput="bindinput" value='{{street}}' data-code='2' placeholder='街道门牌信息'></input>
+      </view>
+      <view class='item'>
+        <view>设为默认地址</view>
+        <switch  class="switch" />
+      </view>
+    </view>
+    <button form-type='submit' catchtap='save'>
+      <view class="add">保存</view>
+    </button>
+  </view>
+</form>

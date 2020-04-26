@@ -1,0 +1,10 @@
+<!--components/assembleListItem/assembleListItem.wxml-->
+<view class="assemble_list_item" wx:for='{{lists}}' wx:key="index">
+  <image mode="aspectFit" class="assemble_list_item_img" src="{{item.avatarUrl}}"></image>
+  <view class="assemble_list_item_content">
+    <view class="assemble_list_item_content_title">{{item.username}}</view>
+    <view class="assemble_list_item_content_bottom">还差
+      <text>{{item.leftperson}}</text>人 剩余{{countDownList[index]}}</view>
+  </view>
+  <view class="assemble_list_item_btn" data-item="{{item}}" catchtap="afterGetAssemble">去拼团</view>
+</view>

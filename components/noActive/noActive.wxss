@@ -1,0 +1,32 @@
+/* components/noActive/noActive.wxss */
+
+.no-active {
+  position: fixed;
+  z-index: 1000;
+}
+
+.no-active .modal image {
+  width: 150rpx;
+  height: 150rpx;
+  margin: 20rpx 0 10rpx;
+}
+
+.modal_content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 28rpx;
+}
+
+.btn {
+  width: 320rpx;
+  background: linear-gradient(90deg, rgba(254, 143, 113, 1), rgba(254, 203, 164, 1));
+  box-shadow: 6rpx 6rpx 16rpx 0rpx rgba(254, 143, 113, 0.2);
+  border-radius: 30rpx;
+  text-align: center;
+  color: #fff;
+  margin: 50rpx auto;
+  padding: 14rpx 0;
+  font-size: 28rpx;
+}

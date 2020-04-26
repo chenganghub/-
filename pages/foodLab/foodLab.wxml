@@ -1,0 +1,30 @@
+<view class='container'>
+  <image class="topbg" src="../pic/book_house_head_bg.png"></image>
+  <view class="foodlabWrap">
+    <!-- 头部start -->
+    <view class="foodlabheader">
+      <view>
+        <view class="title">欢迎来到千禾美味实验室</view>
+        <text class="info">听说隔壁老王是个重口，你也来试试吧！</text>
+      </view>
+      <image class="books" src="../pic/book_house.png" bindtap="toBookStore" />
+    </view>
+    <!-- 头部end -->
+    <!-- 家常菜列表start -->
+    <view class="foodlabcontent">
+      <view class="choice">选择一个家常菜</view>
+      <view class="homedishes">
+        <view wx:for='{{list}}' wx:key="id" catchtap="todishesdetail" style="background-image:url('../pic/book_house_card_bg.png')" data-item="{{item}}" class="dishes">
+          <view class="bg_box" style="background-image:url('{{staticimg}}panzi_eva.png')"></view>
+          <image class="img" mode="aspectFit" src="{{headimg+item.finishthumb}}" data-item="{{item}}"></image>
+          <text>{{item.name}}</text>
+          <view class="arrow">
+            <image src="../pic/jiang-right.png"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 家常菜列表end -->
+  </view>
+  <login-component wx:if="{{showLogin}}" bind:closeModal="closeLogin" bind:openModal="openLogin" />
+</view>

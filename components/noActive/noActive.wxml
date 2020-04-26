@@ -1,0 +1,12 @@
+<!--components/noActive/noActive.wxml-->
+<view class="no-active">
+  <modal visible="{{visible}}" bind:handleClose="handleClose" class="modal">
+    <view slot="content" class="modal_content">
+      <image src="../../pages/pic/noActive.png" mode="aspectFit"></image>
+      <view>暂无活动，敬请期待</view>
+    </view>
+    <view slot="btns">
+      <view class="btn" bindtap="handleClose">知道了</view>
+    </view>
+  </modal>
+</view>

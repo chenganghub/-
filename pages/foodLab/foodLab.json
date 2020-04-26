@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "美味实验室",
+  "usingComponents": {
+    "login-component": "/components/login/login"
+  }
+}

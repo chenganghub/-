@@ -1,0 +1,299 @@
+page {
+  background-color: #fff;
+}
+
+.container {
+  padding-bottom: 200rpx;
+}
+
+.detailheader {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  padding: 20rpx;
+  background-color: #fff;
+  box-sizing: border-box;
+  z-index: 10;
+}
+
+.detailcontent {
+  margin-top: 112rpx;
+}
+
+.headportrait {
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 50%;
+}
+
+.font-bold{
+  font-weight: bold;
+}
+.head_box {
+  margin-left: 20rpx;
+}
+
+.head-message {
+  display: flex;
+}
+
+.head-name {
+  max-width: 200rpx;
+  font-size: 28rpx;
+  font-weight:bold;
+}
+
+.head_littlebox {
+  color: #888;
+  font-size: 22rpx;
+  margin-top: 10rpx;
+  line-height: 1;
+}
+
+.head-time {
+  display: inline-block;
+  margin-right: 30rpx;
+}
+
+.membertext {
+  font-size: 20rpx;
+  margin-left: 12rpx;
+  position: relative;
+}
+
+.title_star {
+  width: 20rpx;
+  height: 20rpx;
+  position: absolute;
+  margin-left: 6rpx;
+}
+
+.food_title {
+  color: #fff;
+  background-color: #fecba4;
+  padding: 0 12rpx 0 32rpx;
+  border-radius: 16rpx;
+  line-height: 32rpx;
+}
+
+.follow {
+  width: 150rpx;
+  height: 60rpx;
+  border: 2rpx solid #fecba4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30rpx;
+}
+
+.block {
+  display: none;
+}
+
+.isfollow {
+  border: 2rpx solid #b2b2b2;
+}
+
+.follow image {
+  width: 26rpx;
+  height: 26rpx;
+  margin-right: 4rpx;
+}
+
+.followtext {
+  font-size: 32rpx;
+  color: #fecba4;
+}
+
+.selecr_text {
+  color: #b2b2b2;
+}
+
+.title {
+  font-size: 30rpx;
+  padding: 20rpx 18rpx;
+  line-height: 1;
+}
+
+swiper {
+  width: 100vw;
+  height: 100vw;
+}
+
+swiper image {
+  width: 100%;
+  height: 100%;
+}
+
+.banner .wx-swiper-dot{background: #ddd;width: 10rpx;height: 10rpx;border-radius: 50%;}
+.allcomment {
+  padding: 0 20rpx;
+}
+
+.comment-title {
+  margin: 30rpx 0;
+}
+
+.comment-title text:nth-of-type(1) {
+  font-size: 32rpx;
+  font-weight: 700;
+}
+
+.comment-title text:nth-of-type(2) {
+  font-size: 28rpx;
+}
+
+.commentlist {
+  width: 100%;
+}
+
+.comment {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 25rpx;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.userheadportrait {
+  display: flex;
+  align-items: center;
+}
+
+.userheadportrait image {
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50%;
+}
+
+.username {
+  font-size: 24rpx;
+  margin-left: 20rpx;
+  font-weight: bold;
+}
+
+.commenttime {
+  color: #888;
+  font-size: 26rpx;
+}
+
+.contentbox {
+  display: flex;
+  justify-content: space-between;
+  padding: 10rpx 0;
+}
+
+.reportbox {
+  /* position: relative; */
+  margin-left: 10rpx;
+}
+
+.reportabsolute {
+  position: absolute;
+  top: 100rpx;
+  right: 30rpx;
+  width: 140rpx;
+  height: 60rpx;
+  /* padding: 10rpx 20rpx; */
+  color: #888888;
+  background-color: #fff;
+  font-size: 32rpx;
+  text-align: center;
+  line-height: 60rpx;
+  border-radius: 6rpx;
+  box-shadow: 0rpx 0rpx 10rpx 0rpx rgba(0, 0, 0, 0.1);
+}
+
+.report {
+  width: 50rpx;
+  height: 100%;
+}
+
+.report image {
+  width: 38rpx;
+  height: 8rpx;
+}
+
+.commentdetail {
+  font-size: 28rpx;
+  margin-left: 70rpx;
+  margin-top: 5rpx;
+  width: 80%;
+}
+
+.position_bottom {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: white;
+  border-top: 1rpx solid #eef;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+
+.comment_input {
+  width: 450rpx;
+  height: 72rpx;
+  line-height: 72rpx;
+  background-color: #f0f0f5;
+  border-radius: 36rpx;
+  box-sizing: border-box;
+  padding-left: 30rpx;
+  font-size: 28rpx;
+}
+
+.sendBtn {
+  width: 100rpx;
+  height: 60rpx;
+  background:#FECBA4;
+  border-radius: 8rpx;
+  color: #fff;
+  text-align: center;
+  line-height: 60rpx;
+}
+
+.thumbs-up {
+  display: flex;
+  align-items: center;
+  margin-right: 30rpx;
+}
+
+.thumbs-up image {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.thumbs-up text {
+  font-size: 32rpx;
+  color: #5f5f5f;
+  margin-left: 10rpx;
+}
+
+.commentquantity {
+  display: flex;
+  align-items: center;
+}
+
+.commentquantity image {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.commentquantity text {
+  font-size: 32rpx;
+  color: #5f5f5f;
+  margin-left: 10rpx;
+}
+
+.placeholder {
+  font-size: 28rpx;
+  color: #d6d6d7;
+  padding-left: 20rpx;
+  line-height: 60rpx;
+}

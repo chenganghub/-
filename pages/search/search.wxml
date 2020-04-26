@@ -1,0 +1,24 @@
+<view class="search">
+  <view class="search_header">
+    <image src="/pages/pic/sousuo.png" mode="aspectFit"></image>
+    <input class="search_input" value="{{inputValue}}" focus confirm-type="search" bindconfirm="inputConfim"  bindinput="inputClick" />
+    <view class="search_button" bindtap="cancelClick">重置</view>
+    <image src="/pages/pic/del.png" bindtap="deleteClick" mode="aspectFit"></image>
+  </view>
+  <scroll-view class="search_list"   scroll-y>
+    <view class="search_list_Item" wx:for="{{list}}" wx:key="index">
+      <view>
+        <image src='{{item.avatarUrl}}' mode="aspectFit"></image>
+        <view class="search_list_text">
+          <view>{{item.username}}</view>
+          <view>
+            还差
+            <text>{{item.leftperson}}</text>
+            人 剩余{{countDownList[index]}}
+          </view>
+        </view>
+      </view>
+      <view class="search_list_button" data-item="{{item}}" bindtap="goGroup">去拼团</view>
+    </view>
+  </scroll-view>
+</view>

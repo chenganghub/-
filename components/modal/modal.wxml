@@ -1,0 +1,12 @@
+<!--components/modal/modal.wxml-->
+<view class="modal" wx:if="{{visible}}">
+  <view class="modal_bg" bindtap="handleClose"></view>
+  <view class="modal_box">
+    <view class="modal_box_content">
+      <slot name="content"></slot>
+    </view>
+
+    <slot name="btns"></slot>
+
+  </view>
+</view>

@@ -1,0 +1,47 @@
+<view class='container'>
+  <block wx:for='{{list}}'>
+    <view class="vouter_time">
+      <text style="font-size: 20rpx;margin-right: 10rpx">距领取结束还有</text>
+      <text wx:if="{{item.day}}" class="day">{{item.day || '-'}}天</text>
+      <view wx:else style="display: inline-block">
+        <text>{{item.hours || '-'}}</text>:
+        <text>{{item.mins || '-'}}</text>:
+        <text>{{item.seconds || '-'}}</text>
+      </view>
+
+    </view>
+    <view class="voutercontent">
+      <view class="vouter" style="background-image:url('{{staticimg}}card_bg_eva.png')">
+
+        <view class="left"></view>
+        <view class="content_center">
+          <text class="first">{{item.item.name}}</text>
+          <view>
+            <text class="second coupon">{{item.item.type === 'MJ' ? '满减券' : '折扣券'}}</text>
+            <text class="second">{{item.description}}</text>
+          </view>
+
+          <text class="third">使用期限，领取后{{item.item.usetime}}天内有效</text>
+        </view>
+        <view class="right" data-got='{{item.got}}' catchtap="receivecoupon" data-id="{{item.item.id}}">
+          <view class="right_content">
+            <view class="right_top">
+              <view class="right_top_title">券已领{{item.couponcount !== '0' ? item.recievedCount : '-'}}%</view>
+              <view class="right_top_progress">
+                <view style="width: {{item.couponcount !== '0' ? item.givedcount/item.couponcount*140 : 0}}rpx"></view>
+              </view>
+            </view>
+            <view class="right_btn {{item.got ? 'isgot' : ''}}" data-got="{{item.got}}" wx:if="{{item.givedcount/item.couponcount < 1}}">
+
+              {{item.got ? '已领取' : '领取'}}
+            </view>
+            <view class="right_btn isgot" data-got="{{item.got}}" wx:else>
+              已领完
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+
+</view>

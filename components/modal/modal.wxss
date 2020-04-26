@@ -1,0 +1,35 @@
+/* components/modal/modal.wxss */
+
+.modal_bg {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,.5);
+
+}
+
+.modal_box {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  border-radius: 20rpx;
+  width: 80%;
+  /* overflow: hidden */
+}
+
+.modal_box_content {
+  padding: 40rpx;
+}
+
+.modal_box_btns {
+  display: flex;
+  justify-content: center;
+}
+
+.modal_box_btns view {
+  flex: 1;
+}

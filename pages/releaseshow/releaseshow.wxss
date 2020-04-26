@@ -1,0 +1,83 @@
+page{
+  background-color: #fff;
+}
+
+.item {
+  padding-left: 5vw;
+  position: relative;
+  width: 95vw;
+  padding-top: 50rpx;
+}
+
+.item .title {
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  font-size: 32rpx;
+}
+
+textarea {
+  font-size: 32rpx;
+  height: 150rpx;
+}
+
+.item .hint {
+  position: absolute;
+  bottom: 30rpx;
+  right: 40rpx;
+  font-size: 28rpx;
+  color: #ddd;
+}
+
+.item .title .count {
+  color: #ff3223;
+  font-size: 30rpx;
+  padding-left: 20rpx;
+  vertical-align: middle;
+}
+
+.item .imglist {
+  display: flex;
+  width: 90vw;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.item image {
+  display: block;
+}
+
+.position {
+  position: relative;
+  margin-right: 40rpx;
+}
+
+.item .food_img {
+  width: 160rpx;
+  height: 160rpx;
+}
+
+.item .del {
+  width: 32rpx;
+  height: 32rpx;
+  position: absolute;
+  top: -16rpx;
+  right: -16rpx;
+  background-color: #ffff;
+  border-radius: 16rpx;
+}
+
+.btn-hover {
+  background: #86ce60;
+}
+
+.subbtn {
+  width: 690rpx;
+  height: 88rpx;
+  background: linear-gradient(-90deg,rgba(254,143,113,1),rgba(254,203,164,1));
+  border-radius: 44rpx;
+  line-height: 88rpx;
+  text-align: center;
+  color: #fff;
+  margin: 40rpx auto 0;
+  font-size: 32rpx;
+}

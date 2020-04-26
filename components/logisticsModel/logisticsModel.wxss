@@ -1,0 +1,39 @@
+.showLogistics {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 500rpx;
+  z-index: 3;
+}
+
+.showLogistics .model_header {
+  width: 500rpx;
+  height: 140rpx;
+  display: block;
+}
+
+.showLogistics .model_body {
+  background-color: #fff;
+  padding: 30rpx 30rpx 20rpx;
+  border-radius: 0 0 20rpx 20rpx;
+}
+
+.showLogistics .model_body .show_item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+  font-size: 24rpx;
+  color: #999;
+}
+
+.showLogistics .model_body .show_content {
+  color: #333;
+}
+
+.showLogistics .close_icon {
+  width: 46rpx;
+  height: 46rpx;
+  display: block;
+  margin: 162rpx auto 0;
+}

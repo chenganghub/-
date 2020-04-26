@@ -1,0 +1,273 @@
+page {
+  background: #ff4446;
+}
+
+.game_container {
+  width: 100%;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-position: 0 -60px;
+  background-size: 100% 110%;
+  overflow: hidden;
+}
+
+.game_container .header {
+  padding-top: 70rpx;
+}
+
+.game_title {
+  width: 479rpx;
+  height: 146rpx;
+  display: block;
+  margin: 0 auto;
+}
+
+/* 模态框 */
+.mod {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.mod-content {
+  position: fixed;
+  top: 100rpx;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: 10001;
+  max-width: 1000rpx;
+  width: 70%;
+  background: #fcedb6;
+  padding: 50rpx 20rpx;
+  color: #333;
+  border-radius: 15rpx;
+}
+
+.mod-title {
+  font-size: 30rpx;
+  text-align: center;
+  line-height: 50rpx;
+}
+
+.contitle {
+  color: #000;
+  font-weight: 700;
+  line-height: 90rpx;
+}
+
+.ok {
+  width: 100%;
+  background-color: #f8b800;
+  color: #fff;
+  font-size: 30rpx;
+  letter-spacing: 10rpx;
+  text-align: center;
+  padding: 20rpx 0;
+  border-radius: 15rpx;
+  margin-top: 30rpx;
+}
+
+/* 转盘 */
+
+.canvas-container {
+  margin: 0 auto;
+  position: relative;
+  width: 640rpx;
+  height: 640rpx;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.canvas-content {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  width: 640rpx;
+  height: 640rpx;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% auto;
+}
+
+.canvas-element {
+  position: relative;
+  z-index: 1;
+  width: inherit;
+  height: inherit;
+  border-radius: 50%;
+}
+
+.canvas-list {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: inherit;
+  height: inherit;
+  z-index: 9999;
+}
+
+.canvas-item {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  color: #6d0d13;
+  font-size: 24rpx;
+}
+
+.canvas-item image {
+  width: 10vw;
+  height: 10vw;
+  position: relative;
+  display: block;
+  padding-top: 10px;
+  margin: 0 auto;
+  text-align: center;
+  -webkit-transform-origin: 50% 320rpx;
+  transform-origin: 50% 320rpx;
+}
+
+.canvas-item-text {
+  position: relative;
+  display: block;
+  padding-top: 40px;
+  margin: 0 auto;
+  text-align: center;
+  -webkit-transform-origin: 50% 320rpx;
+  transform-origin: 50% 320rpx;
+  max-width: 180rpx;
+}
+
+/* 分隔线 */
+
+.canvas-line {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: inherit;
+  height: inherit;
+  z-index: 99;
+}
+
+.canvas-litem {
+  position: absolute;
+  left: 320rpx;
+  top: 0;
+  width: 1px;
+  height: 320rpx;
+  background-color: rgba(228, 55, 14, 0.4);
+  overflow: hidden;
+  -webkit-transform-origin: 50% 150px;
+  transform-origin: 50% 320rpx;
+}
+
+.canvas-btn {
+  z-index: 400;
+  width: 160rpx;
+  height: 203rpx;
+  margin-top: -40rpx;
+}
+
+.rule {
+  position: absolute;
+  top: 86rpx;
+  right: 0;
+  font-size: 24rpx;
+  padding: 0 20rpx;
+  line-height: 48rpx;
+  color: #6d0d13;
+  background-color: #fff;
+  border-radius: 24rpx 0 0 24rpx;
+}
+
+.surplus {
+  text-align: center;
+  color: #fff;
+  font-size: 24rpx;
+  position: relative;
+  top: -18rpx;
+}
+
+.tips {
+  font-size: 24rpx;
+  text-align: center;
+  color: #fff;
+  margin-top: 20rpx;
+}
+
+.btn_group {
+  padding: 0 36rpx;
+  margin-top: 28rpx;
+}
+.game_container_tips {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 12rpx;
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+}
+.game_container_tips text {
+  flex: 1;
+  color: #6d0d13;
+  font-size: 28rpx;
+  text-align: center;
+}
+
+.prize_list_box {
+  margin: 0 40rpx;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 10rpx 40rpx;
+  height: calc(100vh - 1110rpx);
+}
+
+.prize_list_animate {
+  margin-top: 30rpx;
+  padding: 0 30rpx 20rpx;
+}
+.prize_list_animate view {
+  font-size: 24rpx;
+  color: rgba(255, 255, 255, 0.8);
+}
+.prize_list_animate .prize_color {
+  color: #ffb836;
+  font-size: 24rpx;
+  font-weight: bold;
+}
+.prize_list_animate .m_20 {
+  margin: 0 20rpx;
+}
+
+@keyframes wordsLoop {
+  0% {
+    transform: translateY(0);
+    -webkit-transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
+    -webkit-transform: translateY(-100%);
+  }
+}
+
+@-webkit-keyframes wordsLoop {
+  0% {
+    transform: translateY(0);
+    -webkit-transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
+    -webkit-transform: translateY(-100%);
+  }
+}

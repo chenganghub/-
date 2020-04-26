@@ -1,0 +1,27 @@
+<view class='addresscontainer'>
+
+  <view class='noaddress' wx:if='{{list.length==0}}'>
+    还没有地址？创建一个吧
+  </view>
+  <view wx:else class='wrap'>
+    <block wx:for='{{list}}' >
+      <view data-id='{{item.id}}'data-index="{{index}}" data-item='{{item}}' catchtap="choseaddress" class='item' catchlongpress="deladdress">
+        <image style="display:{{hidecheck?'none':''}}"  data-index='{{index}}' class='correct' src='../pic/correct{{item.isdefault==1?"":"_circle"}}.png' ></image>
+        <view class='content' catchtap="{{hidecheck?'':'updateaddress'}}" data-addressid="{{item.id}}" data-index='{{index}}' >
+          <view class='top'>
+            <text>{{item.name}}<text wx:if="{{item.isdefault==1}}" class="defaultaddress">默认地址</text></text>
+            <text>{{item.phone}}</text>
+          </view>
+          <text >{{item.province}}{{item.city}}{{item.county}}{{item.street}}</text>
+        </view>
+        <image class='edit' src='../pic/edit.png' catchtap='edit' data-index='{{index}}'></image>
+      </view>
+    </block>
+  </view>
+
+
+  <view catchtap='toadd' class='bottom'>
+    新增收货地址
+  </view>
+
+</view>

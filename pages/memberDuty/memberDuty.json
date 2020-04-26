@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "会员任务",
+  "usingComponents": {
+    "memberLevel": "/components/memberLevel/memberLevel"
+  }
+}

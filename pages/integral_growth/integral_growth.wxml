@@ -1,0 +1,17 @@
+<view class='container' style="background-image:url('{{staticimg}}my_integral_growth_bg.png')">
+  <view class="Header_top">可用{{judge==2?'积分':'成长值'}}: {{all||0}}</view>
+  <view class="list_header">
+    <text>{{judge==2?'积分':'成长值'}}</text>
+    <text>来源</text>
+    <text>时间</text>
+  </view>
+  <scroll-view scroll-y bindscrolltolower='bindscrolltolower' class="invitationList">
+    <block wx:for='{{list}}' wx:key="{{index}}">
+      <view class="list">
+        <text class="wes_1">{{item.point>0 ? '+' :''}}{{item.point}}</text>
+        <text class="wes_1">{{item.fromwhere}}</text>
+        <text class="wes_1">{{item.updateDate}}</text>
+      </view>
+    </block>
+  </scroll-view>
+</view>

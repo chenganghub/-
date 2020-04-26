@@ -1,0 +1,133 @@
+/* components/search/search.wxss *//* components/modal/modal.wxss */
+
+.modal_bg {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background:rgba(0,0,0,1);
+  opacity:0.3;
+}
+
+.modal_box {
+  height: 792rpx;
+  border-radius:20px;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  border-radius: 20rpx;
+  width: 600rpx;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.modal_box .search_header {
+  box-sizing: border-box;
+  height: 120rpx;
+  padding-top: 14rpx;
+  padding-bottom: 14rpx;
+  background: white;
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal_box .search_header image:nth-child(1) {
+  width: 28rpx;
+  height: 28rpx;
+  position: absolute;
+  top: 30rpx;
+  left: 53rpx;
+}
+
+.modal_box .search_header image:last-child {
+  width: 28rpx;
+  height: 28rpx;
+  position: absolute;
+  top: 30rpx;
+  right: 53rpx;
+  z-index: 999;
+}
+
+.modal_box .search_input {
+  box-sizing: border-box;
+  background: rgba(240, 240, 245, 1);
+  border-radius: 30rpx;
+  width: 540rpx;
+  height: 60rpx;
+  padding-left: 65rpx;
+}
+
+.modal_box .search_button {
+  color: #FE8F71;
+  flex: 1;
+  text-align: center;
+}
+
+.modal_box .search_list {
+height: calc(100% - 88rpx );
+  padding: 0 20rpx;
+  padding-top: 43rpx;
+  box-sizing: border-box;
+  position: relative;
+  background: white;
+}
+
+.search_list_Item {
+  height: 72rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.search_list_Item>view {
+  display: flex;
+  align-items: center;
+}
+
+.search_list_Item image {
+  width: 72rpx;
+  height: 72rpx;
+}
+
+.search_list_text {
+  margin-left: 20rpx;
+  font-size: 23rpx;
+}
+
+.search_list_text view:nth-child(2) {
+  color: #B2B2B2;
+}
+
+.search_list_text view:nth-child(2) text {
+  color: #FF8D72;
+}
+
+.search_list_button {
+  width: 120rpx;
+  height: 48rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: linear-gradient(to right, #FECBA4, #FE8F71);
+  border-radius: 24rpx;
+  color: white;
+  font-size: 24rpx;
+}
+.search_bottom{
+  width:600rpx;
+height:60rpx;
+background:rgba(248,249,251,1);
+border-radius:0px 0px 20px 20px;
+position: fixed;
+bottom: 0;
+font-size:24rpx;
+color:rgba(178,178,178,1);
+text-align: center;
+line-height: 60rpx;
+}

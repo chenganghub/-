@@ -1,0 +1,87 @@
+<view class="container">
+  <!-- 头部 -->
+  <view class="kitchenHeader" style="background-image: url(https://test.fan921.com/bak/src/aaa.png)">
+    <!-- 登录部分start -->
+    <view class="btntop">
+      <button wx:if='{{!haslogin}}' class='head' bindgetuserinfo='getuserinfo' open-type='getUserInfo' hover-class="btn-hover"></button>
+      <view >
+      <image class="headimg {{haslogin?'l':''}}" src='{{avatarUrl}}'></image>
+      <text class="info">{{nickname}}</text>
+      <view wx:if='{{rank}}' class="membertext">
+        <text>{{rank}}</text>
+      </view>
+      </view>
+      <image src="../pic/lingdang.png" class="img" catchtap="mytidings"></image>
+    </view>
+    <!-- 登录部分end -->
+    <!-- 关注人气部分start -->
+    <view class="headerList">
+      <view class="follow list" catchtap="tofollow">
+        <text>关注</text>
+        <text>{{follow}}</text>
+      </view>
+      <view class="fans list" catchtap="tofollow">
+        <text>粉丝</text>
+        <text>{{fans}}</text>
+      </view>
+      <view class="popularity list">
+        <text>人气</text>
+        <text>{{popularity}}</text>
+      </view>
+    </view>
+    <!-- 关注人气部分end -->
+    <!-- 实验秀秀部分start -->
+    <!-- <view class="frequency">
+      <view class="experiment">
+        <view class="experimentText">
+          <text>120</text>
+          <text>实验次数</text>
+        </view>
+        <image src="../pic/kitchenlogo1.png"></image>
+      </view>
+      <view class="xiuxiu">
+        <view class="xiuxiuText">
+          <text>{{showindex}}</text>
+          <text>秀秀指数</text>
+        </view>
+        <image src="../pic/kitchenlogo2.png"></image>
+      </view>
+    </view> -->
+    <!-- 实验秀秀部分end -->
+  </view>
+  <!-- 头部 -->
+  <!-- 秀秀列表start -->
+  <view class="shouWrap">
+    <view class="position_box">
+      <view class="showTitle">
+        <text>我的秀秀</text>
+        <text class="title_right">共{{total}}条</text>
+      </view>
+    </view>
+    <view class="showList">
+      <block wx:for='{{showList}}' wx:key='{{item.id}}'>
+       <view class="position_show">
+       <view class="wait {{item.item.state=='WAIT'?'':'waitnone'}}">审核中</view>
+        <view class="show" data-id='{{item.item.id}}' catchtap="toshowdetail">
+           <image class="delshow" src="../pic/del.png" catchtap="delectshow" data-id="{{item.item.id}}" data-index="{{index}}"></image>
+          <image mode='aspectFill' class="topimg" src="{{headimg+item.imgurl}}"></image>
+          <view class="listText">
+            <view class="title">{{item.item.contents}}</view>
+            <view class="user">
+              	<view class="userleft">
+								<image class="headsculpture" src="{{item.avatar}}"> </image>
+								<text class="username">{{item.name}}</text>
+						</view>
+              <view class="fabulous">
+                <image src="../pic/zan.png"></image>
+                <text>{{item.favorcount}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+  </block>
+ </view>
+  </view>
+  <!-- 秀秀列表end -->
+</view>

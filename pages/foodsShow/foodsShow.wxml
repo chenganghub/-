@@ -1,0 +1,65 @@
+<view class="container">
+  <view class="showHeader flex_sb">
+    <view class="flex flex_center">
+      <view class="tab_item {{switchtab==1?'active':''}}" bindtap="switchtap" data-index="1">
+        <text class="tab_text">推荐</text>
+      </view>
+      <view class="tab_item {{switchtab==2?'active':''}}" bindtap="switchtap" data-index="2">
+        <text class="tab_text">关注</text>
+      </view>
+    </view>
+    <!-- <button class="btn" wx:if='{{!login}}' open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo"></button> -->
+    <image class="headericon" src="../pic/add_btn.png" catchtap="toRelease"></image>
+  </view>
+  <!-- 秀秀列表start -->
+  <view class="showWrap">
+    <view class="showList">
+      <view class="position_show" wx:for='{{showListLeft}}' wx:key='{{item.item.id}}'>
+        <view wx:if="{{item.item.state=='WAIT'}}" class="wait">审核中</view>
+        <view class="show">
+          <view class="img_wrap flex_c">
+            <image mode="widthFix" class="topimg" data-id='{{item.item.id}}' catchtap="toshowdetail" src="{{headimg+item.imgurl}}" data-index="{{index}}" bindload="imageLoad"></image>
+          </view>
+          <view class="listText">
+            <view class="title wes_2" data-id='{{item.item.id}}' catchtap="toshowdetail">{{item.item.contents}}</view>
+            <view class="user">
+              <view class="userleft" data-id='{{item.item.id}}' catchtap="toshowdetail">
+                <image class="headsculpture" src="{{item.avatar}}" mode="aspectFill"> </image>
+                <text class="username">{{item.name || ''}}</text>
+              </view>
+              <view class="fabulous">
+                <image catchtap="thumbsup" data-type='left' data-index='{{index}}' data-id='{{item.item.id}}' data-isfavor="{{item.isfavor}}" src="../pic/{{item.isfavor?'dianzanhou':'dianzan_small'}}.png"></image>
+                <text>{{item.favorcount || ''}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="showList">
+      <view class="position_show" wx:for='{{showListRight}}' wx:key='{{item.item.id}}'>
+        <view wx:if="{{item.item.state=='WAIT'}}" class="wait">审核中</view>
+        <view class="show">
+          <view class="img_wrap flex_c">
+            <image mode="widthFix" class="topimg" data-id='{{item.item.id}}' catchtap="toshowdetail" src="{{headimg+item.imgurl}}" data-index="{{index}}" bindload="imageLoad"></image>
+          </view>
+          <view class="listText">
+            <view class="title wes_2" data-id='{{item.item.id}}' catchtap="toshowdetail">{{item.item.contents}}</view>
+            <view class="user">
+              <view class="userleft" data-id='{{item.item.id}}' catchtap="toshowdetail">
+                <image class="headsculpture" src="{{item.avatar}}" mode="aspectFill"></image>
+                <text class="username">{{item.name || ''}}</text>
+              </view>
+              <view class="fabulous">
+                <image catchtap="thumbsup" data-type='right' data-index='{{index}}' data-id='{{item.item.id}}' data-isfavor="{{item.isfavor}}" src="../pic/{{item.isfavor?'dianzanhou':'dianzan_small'}}.png"></image>
+                <text>{{item.favorcount || ''}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 秀秀列表end -->
+  <login-component wx:if="{{showLogin}}" bind:closeModal="closeLogin" bind:openModal="openLogin" />
+</view>

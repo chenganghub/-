@@ -1,0 +1,198 @@
+page {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.foodShare_container .navigationbar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 3;
+  background-color: #fff;
+}
+
+.foodShare_container .navigationbar .status {
+  width: 100%;
+}
+
+.foodShare_container .navigationbar .navbar {
+  display: flex;
+  align-items: center;
+}
+
+.foodShare_container .navigationbar .back_icon {
+  display: flex;
+  align-items: center;
+  margin-left: 24rpx;
+}
+
+.foodShare_container .navigationbar .icon_img {
+  width: 22rpx;
+  height: 36rpx;
+}
+
+.foodShare_container .navigationbar .icon_home {
+  width: 36rpx;
+  height: 36rpx;
+  margin-left: 36rpx;
+}
+
+.foodShare_container .navigationbar .nav_title {
+  font-size: 32rpx;
+  color: #000;
+  text-align: center;
+  margin-left: 35%;
+  font-weight: bold;
+  transform: translateX(-50%);
+}
+
+.foodShare_container .content_wrap {
+  background-repeat: no-repeat;
+  background-position: left top;
+  background-size: 100% 92%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.foodShare_container .container_title {
+  width: 522rpx;
+  height: 122rpx;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% auto;
+  font-size: 42rpx;
+  margin-top: 32rpx;
+  text-align: center;
+  line-height: 90rpx;
+  color: #fff;
+}
+
+.foodShare_container .share_food {
+  width: 48vw;
+  height: 20vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 48vw auto;
+  overflow: hidden;
+}
+
+.foodShare_container .finish {
+  width: 40vw;
+  height: 40vw;
+}
+
+.foodShare_container .container_bottom {
+  position: absolute;
+  width: 100%;
+  bottom: -47rpx;
+}
+
+.foodShare_container .title_intro {
+  width: 550rpx;
+  font-size: 24rpx;
+  color: #363636;
+  text-align: center;
+}
+
+.foodShare_container .canvas_wrap {
+  width: 400rpx;
+  height: 400rpx;
+  overflow: hidden;
+}
+
+.foodShare_container .radarCanvas {
+  margin: -50%;
+}
+
+.foodShare_container .bottomMenu {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 3;
+  background-color: #fff;
+}
+
+.foodShare_container .menuItem {
+  line-height: 90rpx;
+  color: #363636;
+  text-align: center;
+  border-bottom: 1px solid #f0f1f1;
+}
+
+.foodShare_container .tips {
+  height: 124rpx;
+  margin: 0 auto;
+  border-radius: 45rpx;
+  color: rgba(51, 51, 51, 1);
+  font-size: 24rpx;
+  box-sizing: border-box;
+  background-size: 80% auto;
+  background-position: 120rpx 0rpx;
+  background-repeat: no-repeat;
+  position: relative;
+  z-index: 2;
+  top: -45rpx;
+  padding-top: 29rpx;
+  padding-left: 259rpx;
+}
+
+.foodShare_container .tips .tips_icon {
+  width: 132rpx;
+  height: 90rpx;
+}
+
+.foodShare_container .tips .tips_text {
+  width: 362rpx;
+}
+
+.foodShare_container .get_modal {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 580rpx;
+  height: 640rpx;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% auto;
+  z-index: 999;
+  text-align: center;
+}
+
+.foodShare_container .get_modal .title {
+  height: 68rpx;
+  background: rgba(254, 203, 164, 0.2);
+  border: 1rpx solid rgba(254, 203, 164, 1);
+  color: #fe8f71;
+  line-height: 68rpx;
+  border-radius: 12rpx;
+  display: inline-block;
+  padding: 0 10rpx;
+}
+.foodShare_container .get_modal .title_box {
+  padding: 0 10rpx;
+  height: 78rpx;
+  background: rgba(254, 203, 164, 0.2);
+  border-radius: 12rpx;
+  margin: 150px auto;
+  text-align: center;
+  margin-bottom: 60rpx;
+  padding-top: 10rpx;
+  display: inline-block;
+}
+.foodShare_container .get_modal .book_detial {
+  width: 480rpx;
+  height: 88rpx;
+  background: linear-gradient(
+    -90deg,
+    rgba(254, 143, 113, 1),
+    rgba(254, 203, 164, 1)
+  );
+  margin: 20rpx auto;
+  box-shadow: 0px 10rpx 20rpx 0px rgba(254, 143, 113, 0.2);
+  border-radius: 44rpx;
+}

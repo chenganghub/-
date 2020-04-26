@@ -1,0 +1,46 @@
+<!-- index.wxml -->
+<view class="foodShare_container {{isIphoneX ? 'iphonexShare':''}}" style="padding-top:{{statusHeight+ navHeight}}px">
+  <view class="navigationbar" style="height: {{statusHeight+ navHeight}}px">
+    <view class="status" style="height:{{statusHeight}}px"></view>
+    <view class="navbar" style="height:{{navHeight}}px">
+      <view class="back_icon">
+        <image class="icon_img" src="../pic/left_icon.png" bindtap="onBackClick" />
+        <image class="icon_home" src="../pic/backhome.png" bindtap="onBackHomeClick" />
+      </view>
+      <text class="nav_title">{{title}}</text>
+    </view>
+  </view>
+  <view class="content_wrap" style="background-image:url('{{staticimg}}share_bg_eva.png')">
+    <view class="container_title" style="background-image:url('{{staticimg}}title_bg.png')">
+      {{getrank.name}}
+    </view>
+    <view class="share_food flex_c" style="background-image:url('{{staticimg}}pan.png')">
+      <image src="{{headimg+finishimg}}" mode="aspectFit" class="finish" />
+    </view>
+    <view class="canvas_wrap flex_c" style="width:{{showModal ? '0':'400rpx'}}">
+      <canvas class='radarCanvas' canvas-id='radarCanvas' style="width: {{imgW/1.5}}px; height: {{imgW/1.5}}px;"></canvas>
+    </view>
+    <view class="title_intro wes_2">{{getrank.description}}</view>
+    <view class="container_bottom">
+      <view class="flex_c">
+        <button class="common_btn" style="background-image:url('{{staticimg}}btn_bg.png')" catchtap="handleShare">分享给好友</button>
+        <button class="common_btn" style="background-image:url('{{staticimg}}btn_bg.png')" catchtap="getrank">领取头衔</button>
+      </view>
+      <view class="tips flex_left" style="background-image:url('{{staticimg}}share_share_eva.png')">
+        分享好友即可获得《{{foodName}}》秘籍
+      </view>
+    </view>
+  </view>
+  <painter palette="{{json}}" bind:imgOK="onImgOK" style="position: absolute;top: 1000px" />
+  <view class="bottomMenu {{isIphoneX ? 'fix-iphonex-button' : ''}}" wx:if="{{showMenu}}">
+    <button class="menuItem" open-type="share" catchtap="onShareClick">发送给好友</button>
+    <view class="menuItem" catchtap="saveBtn">保存到相册</view>
+  </view>
+  <view class="get_modal" wx:if="{{showModal}}" style="background-image:url('{{staticimg}}modal_bg_eva.png')">
+    <view class="title_box">
+      <view class="title">独家秘制{{foodName}}</view>
+    </view>
+    <button class="common_btn book_detial" catchtap="toDetail">立即领取</button>
+  </view>
+  <view wx:if="{{showModal || showMenu}}" class="mask" catchtap="hideMenu"></view>
+</view>

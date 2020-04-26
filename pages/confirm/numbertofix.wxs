@@ -1,0 +1,12 @@
+var filter = {
+  numberToFix: function(paytotal, postfee, show_total) {
+    console.log(paytotal);
+    console.log(postfee);
+    console.log(show_total);
+    var number = parseFloat(show_total) + parseFloat(postfee) - parseFloat(paytotal);
+    return number.toFixed(2);
+  }
+};
+module.exports = {
+  numberToFix: filter.numberToFix
+};

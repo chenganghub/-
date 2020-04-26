@@ -1,0 +1,36 @@
+<view class='container'>
+  <view class="voucherheader">
+    <view class="voucher_tab">
+      <view class="tab {{switchtab==0 ? 'on' : ''}}" catchtap="switchtab" data-index='0'>未使用</view>
+      <view class="tab {{switchtab==1 ? 'on' : ''}}" catchtap="switchtab" data-index='1'>已使用</view>
+      <view class="tab {{switchtab==2 ? 'on' : ''}}" catchtap="switchtab" data-index='2'>已过期</view>
+    </view>
+  </view>
+  <view class="voucherWrap">
+    <block wx:for='{{list}}'>
+      <view class="vouter {{switchtab===0||switchtab==='0'?'active':''}}" style="background-image:url('{{staticimg}}{{switchtab===0||switchtab==='0'?'card_bg_eva.png':'card_bg_disabled_eva.png'}}')">
+        <view class="voutercontent">
+          <view class="left"></view>
+          <view class="content_center">
+            <text class="first">{{item.coupon.name}}</text>
+            <view>
+              <text class="second" style="background: #fff;border-radius:14rpx;margin-right: 10rpx;color: {{switchtab=='0' ? '#FE8F71' : '#CAC7C8'}};padding: 0 8rpx">{{item.coupon.type === 'MJ' ? '满减券' : '折扣券'}}</text>
+              <text class="second">{{item.description}}</text>
+            </view>
+
+            <text class="third">使用期限，领取后{{item.coupon.usetime}}天内有效</text>
+          </view>
+          <view class="right" data-got='{{item.got}}' catchtap="receivecoupon" data-id="{{item.item.id}}">
+            <view class="right_content">
+              <text class="right_btn" wx:if="{{switchtab == '0'}}" bindtap="goToUse">去使用</text>
+              <text style="color: #888888" wx:elif="{{switchtab == '1'}}">已使用</text>
+              <text wx:else style="color: #888888">已过期</text>
+
+              <!-- <view class="right_btn {{item.got?'isgot':''}}" data-got="{{item.got}}" wx:if='{{switchtab==0}}' >已领取</view> -->
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

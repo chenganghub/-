@@ -1,0 +1,108 @@
+<view class='container' catchtap="isreportid">
+  <!-- 详情头部start -->
+  <view class="detailheader flex_sb">
+    <view class="user_wrap flex">
+      <!-- <navigator open-type="switchTab" hover-class="none" url="../mine/mine"> -->
+      <image class="headportrait" src="{{avatar}}" mode="aspectFill"></image>
+      <!-- </navigator> -->
+      <view class="head_box">
+        <view class="head-message">
+          <!-- <navigator open-type="switchTab" hover-class="none" url="../mine/mine"> -->
+          <text class="head-name wes_1">{{username || ''}}</text>
+          <!-- </navigator> -->
+          <view wx:if="{{rank}}" class="membertext flex flex_center">
+            <image class="title_star" src="../pic/center_star.png" />
+            <text class="food_title">{{rank || ''}}</text>
+          </view>
+        </view>
+        <view class="head_littlebox">
+          <text class="head-time">{{createDate}}</text>
+          <!-- -<text class="browsernum">人气值：{{list.browsernum}}</text> -->
+        </view>
+      </view>
+    </view>
+    <view wx:if="{{myId !== data.userid}}" class="follow {{isfollow?'isfollow':''}}" catchtap="tofollow" data-isfollow='{{isfollow}}' data-userid="{{data.userid}}">
+      <image src="../pic/hao.png" class="{{isfollow?'block ':''}}"></image>
+      <text class="followtext {{isfollow?'selecr_text':''}}">{{isfollow?'已关注':'关注'}}</text>
+    </view>
+    <view class="reportbox" wx:else>
+      <view class="report" catchtap="onDeleteUserShow">
+        <image src="../pic/more.png"></image>
+      </view>
+      <view class="reportabsolute" wx:if="{{showDeleteUser}}">
+        <view catchtap="delectshow">删除</view>
+      </view>
+    </view>
+  </view>
+  <!-- 详情头部end -->
+  <!-- 详情内容start -->
+  <view class="detailcontent">
+    <view class="title" style="color:#333">{{data.contents}}</view>
+    <!-- 轮播start -->
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="{{indicatorColor}}" indicator-active-color="{{activeColor}}" circular="{{circular}}">
+      <block wx:for="{{imgUrls}}" wx:key='{{item.index}}'>
+        <swiper-item data-src='{{headimg+item}}' catchtap='prviewtap'>
+          <image mode='aspectFill' src="{{headimg+item}}" class="slide-image" />
+        </swiper-item>
+      </block>
+    </swiper>
+    <!-- 轮播end -->
+  </view>
+  <!-- 详情内容end -->
+  <!-- 评论start -->
+  <view class='allcomment'>
+    <view class="comment-title">
+      <text class="font-bold">全部评论</text>
+      <text style="color:#888888">(共{{totals}}条)</text>
+    </view>
+    <!-- 评论列表start -->
+    <view class="commentlist">
+      <block wx:for='{{contentslist}}' wx:key="{{item.item.id}}">
+        <view class="comment" catchlongpress="delcontentslist" data-id="{{item.item.id}}" data-index="{{index}}">
+          <view class="reportabsolute" wx:if="{{reportid==item.item.id}}">
+            <view catchtap="reportuser">举报</view>
+          </view>
+          <view class="user">
+            <view class="userheadportrait">
+              <image src="{{item.avaurl}}" mode="aspectFill"></image>
+              <text class="username">{{item.name||"匿名用户"}}</text>
+            </view>
+            <text class="commenttime">{{item.date}}</text>
+          </view>
+          <view class="contentbox">
+            <text class="commentdetail">{{item.item.contents}}</text>
+            <!-- <text class="report" catchtap="reportuser" data-id="{{item.item.id}}">举报</text> -->
+            <view class="reportbox">
+              <view class="report" catchtap="reportusershow" data-id="{{item.item.id}}">
+                <image src="../pic/more.png"></image>
+              </view>
+              <view class="reportabsolute" wx:if="{{item.item.show}}">
+                <view catchtap="reportuser">举报</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+    <!-- 评论列表start -->
+  </view>
+  <!-- 评论end -->
+  <view class="position_bottom flex_sb {{isIphoneX ?'fix-iphonex-button':''}}">
+    <input placeholder="说点什么吧..." value="{{contents}}" maxlength="120" class="comment_input" style="width:{{inputFlag ? 570 : 450}}rpx;" bindfocus="onInputFocus" bindinput="onInput" bindblur="onInputBlur" cursor-spacing="20" />
+    <view class="flex flex_center">
+      <block wx:if="{{!inputFlag}}">
+        <view class="thumbs-up">
+          <image catchtap="thumbsup" data-isfavor="{{isfavor}}" src="../pic/{{isfavor?'dianzanhou':'dianzan'}}.png"></image>
+          <text>{{favor}}</text>
+        </view>
+        <button open-type="share" class="share">
+          <view class="commentquantity">
+            <image src="../pic/share.png" class="forward"></image>
+            <text>分享</text>
+          </view>
+        </button>
+      </block>
+      <view class="sendBtn" bindtap="sendRemark" wx:else>发送</view>
+    </view>
+  </view>
+</view>

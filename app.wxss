@@ -1,0 +1,222 @@
+/**app.wxss**/
+@import "wxParse/wxParse.wxss";
+
+page {
+  height: 100vh;
+  background-color: #f4f5f7;
+}
+
+button, button::after, button::before {
+  border: none;
+  background: transparent;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+}
+
+.gray {
+  background: #f5f7f8;
+}
+
+/* 占位符样式 */
+
+.ph {
+  font-size: 30rpx;
+  color: #ccc;
+}
+
+button {
+  font-size: 17px;
+  line-height: 1.2rem;
+}
+
+button::after {
+  border: none;
+}
+
+.button-hover {
+  background: transparent;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.centerc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+swiper {
+  width: 100vw;
+  height: 40vw;
+}
+
+swiper-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+swiper-item image {
+  width: 100%;
+  height: 100%;
+}
+
+/* iphoneX底部适配 */
+
+.fix-iphonex-button {
+  bottom: 68rpx !important;
+}
+
+.fix-iphonex-button::after {
+  content: ' ';
+  position: fixed;
+  left: 0;
+  bottom: 0 !important;
+  height: 68rpx !important;
+  width: 100%;
+  background: #fff;
+}
+
+/* flex */
+
+.flex {
+  display: flex;
+}
+
+.flex_column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex_wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flex_sb {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex_sa {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+/* 垂直居中 */
+
+.flex_right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.flex_left {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.flex_c {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex_start {
+  align-items: flex-start;
+}
+
+.flex_end {
+  align-items: flex-end;
+}
+
+.flex_center {
+  align-items: center;
+}
+
+.flex_baseline {
+  align-items: baseline;
+}
+
+.flex_stretch {
+  align-items: stretch;
+}
+
+.flex_n {
+  flex: none;
+}
+
+.flex_1 {
+  flex: 1;
+}
+
+.flex_2 {
+  flex: 2;
+}
+
+.flex_3 {
+  flex: 3;
+}
+
+/* 省略显示 */
+
+.wes_1 {
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  align-content: center;
+}
+
+.wes_2 {
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  align-content: center;
+}
+
+.common_btn {
+  width: 336rpx;
+  height: 108rpx;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% auto;
+  font-size: 36rpx;
+  color: #fff;
+  font-weight: bold;
+  line-height: 88rpx;
+}
+
+/* 遮罩层 */
+
+.mask {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* 单行文本溢出 */
+
+.text-overflow-single {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

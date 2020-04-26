@@ -1,0 +1,26 @@
+<view class="container">
+  <view class="followHeader">
+    <view class="headerbtn">
+      <text class="text {{switchtab==0?'active':''}}" bindtap="switchtap" data-index="0">关注</text>
+      <text class="text {{switchtab==1?'active':''}}" bindtap="switchtap" data-index="1">粉丝</text>
+    </view>
+  </view>
+  <view class="followlist">
+    <block wx:for='{{followlist}}'>
+      <view class="follow">
+        <view class="followleft">
+          <image src="{{item.avatar}}" class="portrait"></image>
+          <text class="nickname">{{item.name}}</text>
+        </view>
+        <view class="followright {{item.flag?'selectfollow':''}}" wx:if="{{switchtab==0}}" data-index="{{index}}" data-flag="{{item.flag}}" catchtap="tofollowed" data-userid="{{item.userid}}">
+          <image src="../pic/hao.png" class="img {{item.flag?'imgnone':''}}"></image>
+          <text class="followtext {{item.flag ? 'ftext':''}}">{{item.flag?'已关注':'关注'}}</text>
+        </view>
+        <view class="followright {{item.isfollow?'selectfollow':''}}" wx:if="{{switchtab==1}}" data-isfollow="{{item.isfollow}}" catchtap="tofollow" data-fansid="{{item.fansid}}">
+          <image src="../pic/hao.png" class="img {{item.isfollow?'imgnone':''}}"></image>
+          <text class="followtext {{item.isfollow?'ftext':''}}">{{item.isfollow?'互相关注':'关注'}}</text>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

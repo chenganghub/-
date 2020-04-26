@@ -1,0 +1,93 @@
+page{
+  min-height: 100vh;
+  background: #f5f5f5;
+  width: 100vw;
+  overflow-x: hidden;
+  padding-top: 20rpx;
+}
+text{
+  font-size: 28rpx;
+}
+
+.bottom{
+  position: fixed;
+  width: 100vw;
+  height: 100rpx;
+  font-size: 30rpx;
+  color: #FE8F71;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 0;
+  border-top: 1rpx solid #ddd;
+  background: #fff;
+}
+.noaddress{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 36rpx;
+  color: #888;
+}
+.wrap{
+background: #fff;
+width: 100vw;
+display: flex;
+flex-direction: column;
+}
+.wrap .item{
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 20rpx;
+border-bottom: 1rpx solid #f5f5f5; 
+}
+.wrap .item:last-child{
+  border-bottom: none; 
+}
+.wrap .item .correct{
+  width: 37rpx;
+  height: 35rpx;
+}
+/* .wrap .item .circle{
+width: 33rpx;
+height: 33rpx;
+  border:1rpx solid #ddd;
+  border-radius: 50%;
+} */
+.wrap .item .edit{
+  width: 40rpx;
+  height: 40rpx;
+  margin-left: 15rpx;
+}
+.wrap .item .content{
+  margin-left: 15rpx;
+}
+.wrap .item .content>text{
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 76vw;
+  display: block;
+}
+.wrap .item .content .top{
+  width: 76vw;
+  display: flex;
+  justify-content: space-between;
+}
+.wrap .item .content .top text{
+  font-size: 30rpx;
+  margin-bottom: 10rpx;
+}
+.wrap .item .content .top .defaultaddress{
+  background: #f5d066;
+  color:white;
+  width:40rpx;
+  font-size: 24rpx;
+  padding: 5rpx 10rpx;
+  border-radius: 10rpx;
+  text-align: center;
+  margin-left: 15rpx;
+}

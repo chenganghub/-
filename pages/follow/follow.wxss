@@ -1,0 +1,87 @@
+page {
+  background-color: #fff;
+}
+.followHeader {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+.headerbtn {
+  margin-left: 10rpx;
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.text {
+  font-size: 35rpx;
+  color: #8c8c8c;
+  margin-right: 35rpx;
+  display: inline-block;
+}
+.active {
+  font-weight: 600;
+  color: black;
+  border-bottom: 8rpx solid #fe8f71;
+}
+.followlist {
+  margin-top: 30rpx;
+}
+.follow {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0rpx 20rpx;
+  /* background: pink; */
+  height: 100rpx;
+  box-sizing: border-box;
+  align-items: center;
+  margin-bottom: 30rpx;
+}
+.followleft {
+  display: flex;
+  align-items: center;
+}
+.portrait {
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 50%;
+  margin-right: 30rpx;
+}
+.nickname {
+  font-size: 32rpx;
+}
+.followright {
+  width: 150rpx;
+  height: 60rpx;
+  border: 2rpx solid #fecba4;
+  margin-bottom: 10rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30rpx;
+  margin-right: 10rpx;
+}
+.followright image {
+  width: 26rpx;
+  height: 26rpx;
+  margin-right: 4rpx;
+}
+.selectfollow {
+  border: 2rpx solid #888888;
+}
+.img {
+  width: 35rpx;
+  height: 35rpx;
+}
+
+.imgnone {
+  display: none;
+}
+.followtext {
+  font-size: 30rpx;
+  color: #fecba4;
+}
+.ftext {
+  color: #888888;
+}

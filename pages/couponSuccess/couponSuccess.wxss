@@ -1,0 +1,111 @@
+page {
+  background-color: #fff;
+}
+
+.get_tips {
+  height: 220rpx;
+  background-size: 100% auto;
+  text-align: center;
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #fff;
+}
+
+.white_gou {
+  width: 80rpx;
+  height: 60rpx;
+  margin-bottom: 10rpx;
+}
+
+.more_info {
+  line-height: 82rpx;
+  background: rgba(254, 238, 182, 0.4);
+  font-size: 26rpx;
+  color: #888;
+  padding: 0 30rpx;
+}
+
+.complete_btn {
+  color: #e7bb1d;
+  font-size: 28rpx;
+}
+
+.go_arrow {
+  width: 22rpx;
+  height: 22rpx;
+}
+
+.coupon_success .coupon_content {
+  padding: 0 70rpx;
+}
+
+.coupon_success .coupon_title {
+  font-size: 24rpx;
+  color: #b2b2b2;
+  line-height: 1px;
+  border-left: 190rpx solid #ddd;
+  border-right: 190rpx solid #ddd;
+  text-align: center;
+  margin: 40rpx 0;
+}
+
+.ad_img {
+  width: 610rpx;
+  height: 200rpx;
+  border-radius: 8rpx;
+  display: block;
+}
+
+.coupon_goods {
+  background-color: #fff;
+  border-radius: 8rpx;
+  box-shadow: 0 4rpx 20rpx 0 rgba(0, 0, 0, 0.08);
+  margin-bottom: 20rpx;
+}
+
+.goods_img {
+  width: 140rpx;
+  height: 140rpx;
+}
+
+.goods_info {
+  width: 410rpx;
+  padding: 0 30rpx;
+}
+
+.goods_info .goods_name {
+  font-size: 28rpx;
+}
+
+.goods_info .goods_price {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #e8560f;
+  margin-top: 10rpx;
+}
+
+.goods_info .old_price {
+  font-size: 24rpx;
+  color: #b2b2b2;
+  font-weight: normal;
+  text-decoration: line-through;
+}
+
+.btn_wrap {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 16rpx 20rpx;
+  background: #fff;
+  box-sizing: border-box;
+  border-top: 1px solid #e5e5e5;
+}
+
+.use_btn {
+  line-height: 88rpx;
+  font-size: 36rpx;
+  color: #fff;
+  border-radius: 44rpx;
+  background: linear-gradient(-90deg, rgba(254, 143, 113, 1), rgba(254, 203, 164, 1));
+}

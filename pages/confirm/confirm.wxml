@@ -1,0 +1,137 @@
+<wxs module="filter" src="./numbertofix.wxs"></wxs>
+<view class='confirmcontainer'>
+	<view class='address flex_sb' catchtap='tooptionaddress' wx:if="{{sendtype==1}}">
+		<view class="flex">
+			<image class="location_icon" src='../pic/new_location.png'></image>
+			<view wx:if='{{noaddress}}' class='noaddress'>请选择地址</view>
+			<view wx:else class="address_detail">
+				<view class="user_name">
+					{{address.name}}
+					<text class="user_phone">{{address.phone}}</text>
+				</view>
+				<view class="address_txt">{{address.province}} {{address.city}} {{address.countyName}}{{address.info||address.street}}</view>
+			</view>
+		</view>
+		<image class="right_arrow" src="../pic/right.png"></image>
+	</view>
+	<view wx:if='{{list.length>0}}' class='goods'>
+		<block wx:for='{{list}}' wx:key="index">
+			<view class='item flex_sb flex_start'>
+				<view class="flex flex_start">
+					<image src='{{imghead+item.topimg}}'></image>
+					<view class="product_name wes_2">{{item.name}}</view>
+				</view>
+				<view class='content'>
+					<!-- <view wx:if='{{group}}' class='price score'>{{item.group}}</view> -->
+					<view wx:if='{{isscore}}' class='price score'>{{item.score}}积分</view>
+					<view wx:else class='price'>￥{{item.promotionprice/100}}</view>
+					<view class='count'>X{{item.goodscount}}</view>
+					<!-- <view class='top1'>{{item.name}}</view>
+          <text class='size'>{{item.sizecontent}}</text> -->
+				</view>
+			</view>
+		</block>
+	</view>
+	<view class='coupon_select'>
+		<view wx:if='{{coupons&&!isscore}}' class='flex_sb'>
+			<text>优惠券</text>
+			<view class="flex flex_center">
+				<picker range="{{couponnames}}" bindchange='changecoupons'>
+					<view>{{selectcoupon.name}}</view>
+				</picker>
+				<image class="right_arrow" src="../pic/right.png"></image>
+			</view>
+		</view>
+		<!-- <view wx:else class='p2'>
+				<text>暂无优惠券</text>
+				</view> -->
+	</view>
+	<view class="total_wrap">
+		<view class='total_item'>
+			<view wx:if='{{!isscore}}' class='flex_sb'>
+				<text class="item_title">商品总价</text>
+				<text>￥{{show_total}}</text>
+			</view>
+			<view wx:else class='flex_sb'>
+				<text class="item_title">商品总积分</text>
+				<text style='color:#FE8F71'>{{senddata.score*senddata.goodscount}}积分</text>
+			</view>
+		</view>
+		<!-- 拼团 -->
+		<block wx:if='{{group}}'>
+			<view class='total_item'>
+				<view class='flex_sb'>
+					<text class="item_title">邮费</text>
+					<text>￥{{postfee/100}}</text>
+				</view>
+			</view>
+			<view class='total_item'>
+				<view class='flex_sb'>
+					<text class="item_title">订单总价</text>
+					<text>￥{{orderTotal}}</text>
+				</view>
+			</view>
+		</block>
+		<!-- 积分 -->
+		<block wx:if='{{isscore}}'>
+			<view class='total_item'>
+				<view class='flex_sb'>
+					<text class="item_title">邮费</text>
+					<text>免邮费</text>
+				</view>
+			</view>
+			<view class='total_item'>
+				<view class='flex_sb'>
+					<text class="item_title">订单总积分</text>
+					<text>{{senddata.score*senddata.goodscount}}积分</text>
+				</view>
+			</view>
+		</block>
+
+		<block wx:if='{{coupons}}'>
+			<view class='total_item flex_sb'>
+				<text class="item_title">优惠金额</text>
+				<text style='color:#ff5555'>￥{{filter.numberToFix(paytotal, postfee/100, show_total)}}</text>
+			</view>
+		</block>
+		<block wx:if='{{!isscore&&!group}}'>
+			<view class='total_item'>
+				<view wx:if='{{!isscore&&!isaward}}' class='flex_sb'>
+					<text class="item_title">邮费</text>
+					<text>￥{{postfee/100}}</text>
+				</view>
+			</view>
+			<view class='total_item'>
+				<view wx:if='{{!isscore&&!isaward}}' class='flex_sb'>
+					<text class="item_title">订单总价</text>
+					<text wx:if="{{orderTotalS}}">￥{{orderTotalS}}</text>
+						<text wx:else>￥{{orderTotal}}</text>
+				</view>
+			</view>
+		</block>
+		<view class='total_item flex flex_center'>
+			<text class="item_title">留言备注</text>
+			<input class="msg_input" bindinput='inputtap' value='{{desc}}' placeholder='可填写您的要求'></input>
+		</view>
+
+	</view>
+</view>
+<view class='bottom'>
+	<view wx:if='{{isscore}}' class='content flex_c'>需兑换积分：
+		<text style='color:#FE8F71'>{{senddata.score*senddata.goodscount}}</text>
+	</view>
+	<view wx:else class='content flex_c'>合计：
+		<view class="total_price">￥
+			<text>{{paytotal}}</text>
+		</view>
+	</view>
+	<view class='btn' wx:if='{{!isscore&&!isaward}}' catchtap="pay" data-paystate="0">
+		线上支付
+	</view>
+	<view wx:if='{{isscore}}' class="btn" catchtap="pay">
+		<text>确认兑换</text>
+	</view>
+	<view wx:if='{{isaward}}' class="btn" catchtap="pay">
+		<text>确认发货</text>
+	</view>
+</view>

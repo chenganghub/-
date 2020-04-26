@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "assembleOrderItem": "../../components/assembleOrderItem/assembleOrderItem",
+    "modal": "../../components/modal/modal"
+  },
+  "navigationBarTitleText": "我的团购"
+}

@@ -1,0 +1,83 @@
+{
+  "pages": [
+    "pages/classification/classification",
+    "pages/search/search",
+    "pages/memberRules/memberRules",
+    "pages/couponSuccess/couponSuccess",
+    "pages/mine/mine",
+    "pages/order/order",
+    "pages/memberDuty/memberDuty",
+    "pages/memberEquity/memberEquity",
+    "pages/memberSign/memberSign",
+    "pages/confirm/confirm",
+    "pages/goodsDetail/goodsDetail",
+    "pages/foodsShow/foodsShow",
+    "pages/bookstoreDetail/bookstoreDetail",
+    "pages/bookstore/bookstore",
+    "pages/foodShare/foodShare",
+    "pages/foodDetail/foodDetail",
+    "pages/member/member",
+    "pages/scoregoods/scoregoods",
+    "pages/cart/cart",
+    "pages/freight/freight",
+    "pages/address/address",
+    "pages/receivingAddress/receivingAddress",
+    "pages/addressadd/addressadd",
+    "pages/mycoupon/mycoupon",
+    "pages/integral_growth/integral_growth",
+    "pages/foodLab/foodLab",
+    "pages/mykitchen/mykitchen",
+    "pages/mytidings/mytidings",
+    "pages/orderdetail/orderdetail",
+    "pages/showDetails/showDetails",
+    "pages/releaseshow/releaseshow",
+    "pages/VoucherCenter/VoucherCenter",
+    "pages/releasecomment/releasecomment",
+    "pages/list/list",
+    "pages/dishesdetail/dishesdetail",
+    "pages/integraldetails/integraldetails",
+    "pages/game/game",
+    "pages/invitation/invitation",
+    "pages/collection/collection",
+    "pages/dingshiqi/dingshiqi",
+    "pages/assemble/assemble",
+    "pages/group/group"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "千禾味业",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#333333",
+    "list": [
+      {
+        "pagePath": "pages/classification/classification",
+        "text": "商城",
+        "iconPath": "pages/pic/home.png",
+        "selectedIconPath": "pages/pic/home2.png"
+      },
+      {
+        "pagePath": "pages/foodsShow/foodsShow",
+        "text": "美味秀秀",
+        "iconPath": "pages/pic/meishiicon2.png",
+        "selectedIconPath": "pages/pic/meishiicon.png"
+      },
+      {
+        "pagePath": "pages/foodLab/foodLab",
+        "text": "美味实验室",
+        "iconPath": "pages/pic/meishishiyanshiicon2.png",
+        "selectedIconPath": "pages/pic/meishishiyanshiicon.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "会员中心",
+        "iconPath": "pages/pic/wodeicon2.png",
+        "selectedIconPath": "pages/pic/wodeicon.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

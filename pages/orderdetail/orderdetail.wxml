@@ -1,0 +1,175 @@
+<view class='detailcontainer'>
+	<view wx:if="{{target.state === 'SHIPPED'}}" class="logistics flex_right" style="background-image:url('{{staticimg}}logistics.png')">
+		<button class="logistics_btn flex_c" bindtap='openLogistics'>查看物流</button>
+	</view>
+	<view class="status" wx:if="{{state == 'SOLVING'||state == 'SOLVED'}}">
+		<image src="{{staticimg}}solved.png" wx:if="{{state == 'SOLVED'}}"></image>
+		<image src="{{staticimg}}solving.png" wx:if="{{state == 'SOLVING'}}"></image>
+	</view>
+	<view class="statuss" wx:if="{{state == 'SOLVING'||state == 'SOLVED'}}"></view>
+	<view class='orderimg'>
+		<view class="order bottom" wx:if="{{state == 'SOLVING'||state == 'SOLVED'}}">
+			<view class="orderheads">
+				<view>退款总金额</view>
+									<view style="color:#E8560F;font-weight:700" wx:if="{{ordertype==2}}">{{target.returnPrice}}积分</view>
+				<view style="color:#E8560F;font-weight:700" wx:else>￥{{target.returnPrice}}</view>
+
+			</view>
+			<view class="orderitem">
+				<text>申请原因:</text>
+				<text>{{target.refundreason}}</text>
+			</view>
+			<view class="orderitem">
+				<text>申请时间:</text>
+				<text>{{target.refundtime}}</text>
+			</view>
+		</view>
+
+	</view>
+	<view class='address flex' wx:if="{{!(state=='SOLVED'||state=='SOLVING')}}">
+		<image class="location_icon" src='../pic/new_location.png'></image>
+		<view class="address_detail">
+			<view class="user_name">
+				{{target.receiver}}
+				<text class="user_phone">{{target.phone}}</text>
+			</view>
+			<view class="address_txt">{{address}}</view>
+		</view>
+	</view>
+	<view class='item'>
+		<!-- <view class='topi'>
+      <text>{{goodstype}}</text>
+    </view> -->
+		<view class='goods'>
+			<block wx:for='{{target.goodsinfo.data}}' wx:for-item='goodsitem' wx:key="index">
+				<view data-goodsitem='{{goodsitem}}' data-actid='{{target.actid}}' data-ordertype='{{target.ordertype}}'  catchtap='todetail' class='goodsitem flex_sb'>
+					<image src='{{headimg+goodsitem.topimg}}' class="thumbimg"></image>
+					<view class="goodsinfo flex_sb flex_start">
+					<view>
+						<view class='word wes_2'>{{goodsitem.name}}</view>
+							<view class="good_sku"><text>{{goodsitem.firstspecvalue}}</text><text>{{goodsitem.secondspecvalue}}</text></view>
+						</view>
+						<view class="ginfo">
+							<!-- <text class='t2'>{{goodsitem.goodssn}}</text> -->
+							<view wx:if='{{target.ordertype==2}}' class='t3 s'>{{goodsitem.score}}积分</view>
+							<view wx:if='{{target.ordertype==3}}' class='t3 s'>{{goodsitem.teamprice/100}}</view>
+							<view wx:if='{{target.ordertype==1}}' class='t3'>￥{{goodsitem.promotionprice/100}}</view>
+							<view class='t2 count'>X{{goodsitem.goodscount}}</view>
+						</view>
+					</view>
+				</view>
+			</block>
+			<view wx:if='{{target.describe.length>0}}' class='desc'>
+				<!-- <input bindinput='inputtap' value='{{desc}}' placeholder='留言：可填写您的要求'></input> -->
+				<text>备注信息：{{target.desc}}</text>
+			</view>
+		</view>
+	</view>
+	<!-- 普通 -->
+	<view class='order_message' wx:if="{{ordertype==1}}">
+		<view class="order_message_item">
+			<view>商品总价</view>
+			<view>￥{{target.price}}</view>
+		</view>
+		<view class="order_message_item">
+			<view>优惠金额</view>
+			<view style='color:#E8560F'>-￥{{(target.couponprice)}}</view>
+		</view>
+		<view class="order_message_item">
+			<view>邮费</view>
+			<view>￥{{target.postfee}}</view>
+		</view>
+		<view class="order_message_total">
+			<view>订单总价</view>
+			<view>￥{{target.returnPrice}}</view>
+		</view>
+	</view>
+	<!-- 积分 -->
+	<view class='order_message' wx:if="{{ordertype==2}}">
+		<view class="order_message_item">
+			<view>商品积分</view>
+			<view>￥{{target.score}}积分</view>
+		</view>
+		<view class="order_message_item">
+			<view>邮费</view>
+			<view>免邮费</view>
+		</view>
+		<view class="order_message_total">
+			<view>订单总价</view>
+			<view>￥{{target.score}}积分</view>
+		</view>
+	</view>
+	<!-- 拼团 -->
+	<view class='order_message' wx:if="{{ordertype==3}}">
+		<view class="order_message_item">
+			<view>商品总价</view>
+			<view>￥{{target.teamprice}}</view>
+		</view>
+		<view class="order_message_item">
+			<view>邮费</view>
+			<view>￥{{target.postfee}}</view>
+		</view>
+		<view class="order_message_total">
+			<view>订单总价</view>
+			<view>￥{{target.teamprice*1+target.postfee*1}}</view>
+		</view>
+	</view>
+	<view class="orderimg">
+		<view class="order bottom">
+			<view class="orderhead">
+				<text>订单信息</text>
+				<!-- <text class="statecontent">({{goodstype}})</text> -->
+			</view>
+			<view class="orderitem">
+				<text>订单编号:</text>
+				<text>{{ordernumber}}</text>
+			</view>
+			<view class="orderitem">
+				<text>下单时间:</text>
+				<text>{{ordertime}}</text>
+			</view>
+			<view class="orderitem">
+				<text>配送方式:</text>
+				<text>{{target.sendtype==1?'到店自提':'商家配送'}}</text>
+			</view>
+
+		</view>
+	</view>
+	<!-- <view wx:if='{{target.couponid>0}}' class='btm'>
+		<view>
+			<text>优惠券</text>
+			<text>{{coupon.name}}</text>
+		</view>
+	</view> -->
+
+	<view class='paybtns' wx:if="{{!(state=='SOLVED'||state=='SOLVING')}}">
+		<view class="orderbtn" wx:if='{{target.state=="NO_PAY"}}'>
+			<view class="btnstyle cancel" catchtap='cancel'>取消订单</view>
+			<view class="btnstyle pay" catchtap='pay'>去支付</view>
+		</view>
+		<view class="orderbtn" wx:if='{{target.state=="PAYSUCCESS"}}'>
+			<!-- <view class="btnstyle cancel" catchtap='cancel' wx:if='{{target.state=="PAYSUCCESS"}}'>取消订单</view> -->
+			<view class="btnstyle pay"  catchtap='refund'>退款</view>
+		</view>
+		<view class="orderbtn" wx:if='{{target.state=="SHIPPED"}}'>
+			<view class="btnstyle cancel" catchtap='cancel'>取消订单</view>
+			<view class="btnstyle pay" data-ordernum='{{ordernum}}' catchtap='finishOrder'>确认收货</view>
+		</view>
+	</view>
+	  <view class="cancel_modal" wx:if="{{showCancelModal}}">
+    <view class="modal_title">请选择退款原因</view>
+    <view class="reason_list">
+      <view class="reason_item flex_sb" wx:for="{{reasonList}}" data-index="{{index}}" bindtap="selectReason">
+        <view class="label">{{item}}</view>
+        <view class="label_radio {{reason === item ? 'checked':''}}" />
+      </view>
+    </view>
+    <textarea wx:if="{{reason === '其他'}}" fixed class="reason_input" value="{{resonInput}}" bindinput="resonInput" maxLength="200" placeholder="请填入您的原因"></textarea>
+    <view class="modal_btn_wrap flex">
+      <view class="modal_btn flex_1" bindtap="closeModal">我再想想</view>
+      <view class="modal_btn confirm_btn flex_1" bindtap="confirmRefund">确认退款</view>
+    </view>
+  </view>
+	  <view wx:if="{{showCancelModal}}" class="mask"></view>
+	<logisticsModel wx:if="{{showLogistics}}" infoData="{{infoData}}" bind:closemodel="closeLogistics" />
+</view>

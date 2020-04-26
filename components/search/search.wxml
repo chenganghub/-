@@ -1,0 +1,28 @@
+<!--components/search/search.wxml-->
+<view class="modal">
+	<view class="modal_bg" bindtap="handleClose" catchtap="cancelClick"></view>
+	<view class="modal_box search">
+		<view class="search_header">
+			<image src="/pages/pic/sousuo.png" mode="aspectFit" ></image>
+			<input class="search_input" value="{{inputValue}}" id="a" confirm-type="search" bindconfirm="inputConfim" catchfocus="inputClick" />
+			<image src="/pages/pic/del.png"  mode="aspectFit"></image>
+		</view>
+		<scroll-view class="search_list" scroll-y>
+			<view class="search_list_Item" wx:for="{{lists}}" wx:key="index" >
+				<view>
+					<image src='{{item.avatarUrl}}' mode="aspectFit"></image>
+					<view class="search_list_text">
+						<view>{{item.username}}</view>
+						<view>
+							还差
+							<text>{{item.leftperson}}</text>
+							人 剩余{{countDownList[index]}}
+						</view>
+					</view>
+				</view>
+				<view class="search_list_button" data-item="{{item}}" catchtap="goGroup">去拼团</view>
+			</view>
+		</scroll-view>
+		<view class="search_bottom">-已为你展示成团最近的6个团-</view>
+	</view>
+</view>

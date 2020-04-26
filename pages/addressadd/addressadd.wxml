@@ -1,0 +1,44 @@
+<view class='addresscontainer'>
+  <view catchtap='getown' class='myaddress'>
+    <image src='../pic/wechat.png'></image>
+    <text>获取微信地址</text>
+  </view>
+
+  <view class='wrap'>
+    <view class='item'>
+      <view>收货人</view>
+      <input bindinput='inputtap' data-code='0' value='{{username}}' placeholder='名字'></input>
+      <image catchtap='del' wx:if='{{username.length>0}}' data-code='0' src='../pic/del.png'></image>
+    </view>
+
+    <view class='item'>
+      <view>联系电话</view>
+      <input maxlength='11' type='number' bindinput='inputtap' data-code='1' value='{{phone}}' placeholder='11位手机号'></input>
+      <image catchtap='del' wx:if='{{phone.length>0}}' data-code='1' src='../pic/del.png'></image>
+    </view>
+
+    <view class='item r'>
+      <view>选择地区</view>
+      <picker mode="region" bindchange='pickchange' value='{{region}}'>
+        <view wx:if='{{showregion}}' class='picker'>{{region[0]}}，{{region[1]}}，{{region[2]}}</view>
+        <view wx:else class='picker'>选择地区</view>
+      </picker>
+    </view>
+
+
+  <view class='item'>
+        <view>联系地址</view>
+        <input bindinput='inputtap' data-code='2' value='{{info}}' placeholder='街道门牌信息'></input>
+        <image catchtap='del' wx:if='{{info.length>0}}' data-code='2' src='../pic/del.png'></image>
+  </view>
+
+  <view class='item'>
+    <view>设为默认地址</view>
+      <switch checked="{{ischeck}}" bindchange="switchaddress" class="switch" />
+    </view>
+  </view>
+  
+  <view catchtap='save' class='save'>
+    保存
+  </view>
+</view>

@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "logisticsModel": "/components/logisticsModel/logisticsModel"
+  },
+  "navigationBarTitleText": "订单详情",
+  "enablePullDownRefresh": true
+}

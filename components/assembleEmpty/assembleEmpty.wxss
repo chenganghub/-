@@ -1,0 +1,11 @@
+/* components/assembleEmpty/assembleEmpty.wxss */
+
+.assemble_empty {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}

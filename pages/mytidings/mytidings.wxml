@@ -1,0 +1,22 @@
+<view class='container'>
+  <view class="tidingsList">
+    <block wx:for='{{list}}' wx:key='{{item.id}}'>
+      <view class="tidings">
+        <view class="headportrait">
+          <image src="{{item.avatar}}" mode="aspectFill"></image>
+        </view>
+        <view class="tidingscenter">
+          <text class="name">{{item.name}}</text>
+          <!-- <image src="../pic/zan.png"></image> -->
+          <text class="tidingstitle" wx:if="{{item.favor==1}}">为您的美味秀秀点赞了</text>
+          <text class="tidingstitle">{{item.contents}}</text>
+          <view class="date">
+            <text>{{item.date}}</text>
+            <text>{{item.time}}</text>
+          </view>
+        </view>
+        <image class="rightimg" src="{{headimg+item.topimg}}" mode="aspectFill"></image>
+      </view>
+    </block>
+  </view>
+</view>

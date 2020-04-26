@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "美味秀秀",
+  "usingComponents": {
+    "login-component": "/components/login/login"
+  }
+}

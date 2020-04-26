@@ -1,0 +1,34 @@
+/* pages/receivingAddress/receivingAddress.wxss */
+.addreessHeader{
+  width: 100%;
+  height: 80rpx;
+  background: white;
+  text-align: center;
+  font-size: 28rpx;
+  /* position: fixed; */
+  top: 0;
+}
+.addAddreess{
+  width: 50%;
+  height: 80rpx;
+  background: pink;
+  margin:  auto;
+  position: fixed;
+  bottom: 50rpx;
+  left: 25%;
+  border-radius:10rpx;
+  color: white; 
+  text-align: center;
+  line-height: 80rpx;
+}
+.addreess{
+  width: 100%;
+  /* height: 100000rpx; */
+}
+.addreessList{
+  width: 100%;
+  height: 200rpx;
+  background: pink;
+  display: flex;
+  flex-direction: column;
+}

@@ -1,0 +1,10 @@
+{
+  "backgroundTextStyle": "light",
+  "navigationBarBackgroundColor": "#ffffff",
+  "navigationBarTitleText": "商城",
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+    "login-component": "/components/login/login",
+    "no-active": "/components/noActive/noActive"
+  }
+}

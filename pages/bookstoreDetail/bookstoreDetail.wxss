@@ -1,0 +1,59 @@
+page {
+  background: #fff;
+}
+.book_detail_container .header {
+  height: 579rpx;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  position: relative;
+}
+
+.book_detail_container .header .food_img {
+  position: absolute;
+  left: 50%;
+  margin-left: -225rpx;
+  top: 55rpx;
+  width: 450rpx;
+  height: 450rpx;
+}
+
+.book_detail_container .dishes_content {
+  padding: 0 30rpx;
+  margin-top: -30rpx;
+}
+
+.book_detail_container .title_wrap {
+  position: relative;
+  height: 46rpx;
+}
+
+.book_detail_container .title_line {
+  position: absolute;
+  width: 68rpx;
+  height: 10rpx;
+  background-image: linear-gradient(to right, #f5d066, #e5b917);
+  left: 0;
+  bottom: 0;
+}
+
+.book_detail_container .dishes_content .dishes_title {
+  position: absolute;
+  font-size: 36rpx;
+  font-weight: bold;
+  z-index: 2;
+}
+
+.book_detail_container .descript_con {
+  margin-top: 30rpx;
+  margin-bottom: 40rpx;
+  font-size: 28rpx;
+  color: #888;
+}
+
+.book_detail_container .page_bottom {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 175rpx;
+}

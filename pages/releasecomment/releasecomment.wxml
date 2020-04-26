@@ -1,0 +1,7 @@
+<!--pages/releasecomment/releasecomment.wxml-->
+<view class='container'>
+<view class="textarea">
+	<textarea value="{{contents}}" bindinput="input" type="text" placeholder="说点什么吧..." className="textarea" rows="5"></textarea>
+</view>
+	<view class="publish" bindtap="addcontents">发表</view>
+</view>

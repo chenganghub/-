@@ -1,0 +1,52 @@
+<!--会员任务-->
+<view class="container">
+  <!-- 会员等级 -->
+  <memberLevel gradeId="{{user.gradeId}}" growthName="{{user.growthName}}" userGrowth="{{user.userGrowth}}" maxGrowth="{{user.maxGrowth}}" difference="{{user.difference}}" nextGradeName="{{user.nextGradeName}}"></memberLevel>
+  <!-- end -->
+  <view class="container_member_sign">
+
+    <view class="container_member_sign_content">
+      <image mode="aspectFit" src="/pages/pic/signin.png"></image>
+      <text>您本月已累计签到<text style="color: #CE6230"> {{signCount}}次</text></text>
+    </view>
+    <button bindtap="sign" wx:if="{{!today}}">签到</button>
+    <button wx:else style="background: #ddd">已签到</button>
+  </view>
+  <view class="container_member_duty">
+    <view class="container_member_duty_title">新人任务</view>
+    <block wx:for="{{newTask}}">
+      <view class="container_member_duty_item">
+        <view class="container_member_duty_item_left">
+          <view>{{item.name}}</view>
+          <view>积分+{{item.score}} 成长值+{{item.growth}}</view>
+        </view>
+        <view class="container_member_duty_item_right">
+          <block wx:if="{{!item.accomplish}}">
+            <button wx:if="{{item.code === 'phone'}}" data-code="{{item.code}}" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">去完成</button>
+            <button wx:else data-code="{{item.code}}" bindtap="newMission">去完成</button>
+          </block>
+          <button wx:else class="finished">已完成</button>
+        </view>
+      </view>
+    </block>
+  </view>
+  <view class="container_member_duty">
+    <view class="container_member_duty_title">日常任务</view>
+    <block wx:for="{{everyDayTask}}">
+      <view class="container_member_duty_item">
+        <view class="container_member_duty_item_left">
+          <view>{{item.name}}</view>
+          <view>积分+{{item.score}} 成长值+{{item.growth}}</view>
+        </view>
+        <view class="container_member_duty_item_right">
+          <block wx:if="{{!item.accomplish}}">
+            <button wx:if="{{item.code === 'invite' || item.code === 'friendshop'}}" data-code="{{item.code}}" open-type="share" bindtap="dailyTasks">去完成</button>
+            <button wx:else data-code="{{item.code}}" bindtap="dailyTasks">去完成</button>
+          </block>
+          <button wx:else class="finished">已完成</button>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>
+<!-- end -->

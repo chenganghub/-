@@ -1,0 +1,15 @@
+<view class='container'>
+  <view class="addreessHeader">
+    收货地址
+  </view>
+  <view class="addreess">
+    <view class="addreessList" wx:for='{{list}}'>
+    <text>{{item.name}}</text>
+    <text>{{item.phone}}</text>
+    <text>{{item.city}} {{item.city}} {{item.city}} {{item.street}}</text>
+    <image src="../pic/bianji_1.png" data-id='{{item.id}}' bindtap="edittap"></image>
+  </view>
+  </view>
+  
+  <view class="addAddreess"  bindtap="addAddreess">新增地址</view>
+</view>

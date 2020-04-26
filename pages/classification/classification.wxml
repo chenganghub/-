@@ -1,0 +1,193 @@
+<view class='container'>
+  <!-- 活动缺省页start -->
+  <view class="no_active">
+    <no-active visible="{{visible}}" bind:handleClose="handleClose" />
+  </view>
+  <!-- 活动缺省页end -->
+  <!-- 商城头部 -->
+  <view class="mallHeader">
+    <!-- autoplay -->
+    <swiper indicator-dots="" interval='3000' circular class="swiper_box">
+      <swiper-item wx:for='{{swipers}}' wx:key="index" data-path='{{item.path}}' catchtap='toswiperd'>
+        <image src="{{headimg+item.imgurl}}"></image>
+      </swiper-item>
+    </swiper>
+  </view>
+  <!-- 商城头部 -->
+  <!-- 领券充值积分会员板块start -->
+  <view class="act">
+    <view class="wrap" bindtap="toVoucherCenter">
+      <view class="actlist" style="background-image:url('{{staticimg}}bg_red.png')">
+        <view class="text">
+          <view>领券</view>
+          <view>优惠券</view>
+        </view>
+        <image src="../pic/icon_red.png"></image>
+      </view>
+    </view>
+    <view class="wrap" catchtap="togame">
+      <view class="actlist" style="background-image:url('{{staticimg}}bg_green.png')">
+        <view class="text">
+          <view>小积分</view>
+          <view>抽大奖</view>
+        </view>
+        <image src="../pic/icon_green.png"></image>
+      </view>
+    </view>
+    <view class="wrap" bindtap="toMember">
+      <view class="actlist" style="background-image:url('{{staticimg}}bg_yellow.png')">
+        <view class="text">
+          <view>电子</view>
+          <view>会员卡</view>
+        </view>
+        <image src="../pic/icon_yellow.png"></image>
+      </view>
+    </view>
+    <view catchtap="toIntegralmall" class="wrap">
+      <view class="actlist" style="background-image:url('{{staticimg}}bg_purple.png')">
+        <view class="text">
+          <view>积分</view>
+          <view>商城</view>
+        </view>
+        <image src="../pic/icon_purple.png"></image>
+      </view>
+    </view>
+  </view>
+  <!-- 领券充值积分会员板块end -->
+  <!-- 用品分类板块 -->
+  <view class="classification">
+    <scroll-view scroll-x="true" style=" white-space: nowrap;">
+      <block wx:for='{{commodityList}}' wx:key='index' wx:for-item="x">
+        <view class="category" data-id="{{x.item.id}}" data-name='{{x.item.name}}' bindtap="gotolist">
+          <view>
+            <image mode='aspectFill' src="{{headimg+x.item.thumbpath}}"></image>
+            <text>{{x.item.name}}</text>
+          </view>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+  <!-- 用品分类板块 -->
+  <!-- 代金券 -->
+  <view class="classify" wx:if="{{false}}">
+    <scroll-view scroll-x="true" style=" white-space: nowrap; display: flex">
+      <block wx:for='{{list}}' wx:if='{{index<=2}}'>
+        <view class="classify_list" catchtap="receivecoupon" data-got="{{item.got}}" data-id="{{item.item.id}}">
+          <view class="amount">
+            <view class="money">
+              <text>{{item.item.price/100}}</text>
+              <text>￥</text>
+            </view>
+            <text class="text">满{{item.item.threshold/100}}元使用</text>
+          </view>
+          <image src="../pic/coupon{{item.got?'_used':''}}.png"></image>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+  <!-- 代金券 -->
+  <!-- 图片链接 -->
+  <view class="picture_link_box" bindtap="toVoucherCenter">
+    <image class="picture" src="{{staticimg}}homepage_banner_link.png"></image>
+  </view>
+  <!-- 图片链接 -->
+
+  <!-- 多人拼团start -->
+  <view class="assemble_list"  wx:if="{{groupGoods.length>0}}">
+    <view class="title" bind:tap="pageToAllList">
+      <image class="title_icon" src="../pic/icon_hot.png"></image>
+      多人拼团
+    </view>
+    <view class="assemble_list_item" wx:for='{{groupGoods}}' wx:for-item="item"  wx:key="index">
+         <image  class="assemble_list_item_img" src="{{headimg+item.topimg}}"></image>
+      <view class="assemble_list_item_content">
+        <view class="assemble_list_item_content_title">{{item.name}}</view>
+        <view class="assemble_list_item_content_bottom">
+          <text>￥{{item.teamprice}}</text>
+          <text>已拼成{{item.donecount}}件</text>
+        </view>
+      </view>
+      <view class="assemble_list_item_right">
+        <view class="assemble_list_item_right_left">剩余{{countDownList[index]}}</view>
+        <view class="assemble_list_item_right_join" data-id="{{item.id}}" bindtap="goToAssemble" >立即加入</view>
+      </view>
+    </view>
+  </view>
+  <!-- 多人拼团end -->
+
+  <!-- 商城列表start -->
+  <view class="mallList {{flow?'f':''}}">
+    <view class="title" bind:tap="pageToAllList" >
+      <image class="title_icon" src="../pic/icon_hot.png"></image>
+      推荐商品
+      <text class="more_icon">更多 ></text>
+    </view>
+    <view class="goodslist">
+      <view class="good" wx:for='{{goods}}' wx:key='index' bindtap="jumptogoodsdetail" data-id="{{item[0].id}}">
+        <view class="goodsimage">
+          <image src='{{item[1]}}'></image>
+        </view>
+        <view class="goodscontent">
+          <view class="goodstitle">{{item[0].name}}</view>
+          <view class="price">￥{{item[2]}}</view>
+        </view>
+      </view>
+      <view wx:if='{{reachbtm&&goods.length>0}}' class="btmword center">
+        <text>已经到底了</text>
+      </view>
+    </view>
+    <!-- 列表分类end -->
+  </view>
+  <!-- 商城列表end -->
+  <view class="cart flex_c" bindtap="gotoshopingcart">
+    <image class="add_icon" src="../pic/shopping_car2.png"></image>
+  </view>
+  <!-- 优惠卷弹窗start -->
+  <view class="coupon_model" wx:if="{{modelFlag}}">
+    <view class="model_header" style="background-image:url('{{staticimg}}coupon_bg.png')">
+      <view class="coupon_card flex_sb">
+        <text class="title">代金券</text>
+        <view class="coupon_content flex_sb">
+          <view>
+            <view class="price">
+              ¥
+              <text class="big_price">{{newCouponData.couponDetail.price/100}}</text>
+            </view>
+            <view>{{newCouponData.couponDetail.name}}</view>
+          </view>
+          <image class="receive_btn" src="../pic/receive_btn.png" />
+        </view>
+      </view>
+    </view>
+    <view class="model_body">
+      <view class="body_content">
+        <view class="body_title">会员专属优惠</view>
+        <view class="coupon_goods flex flex_center" data-id="{{newCouponData.goodsOneDetail.id}}" catchtap="goDetail" v-if="{{newCouponData.goodsOneDetail!=null}}">
+          <image class="goods_img" src="{{headimg+newCouponData.goodsOneDetail.topimg}}"></image>
+          <view class="goods_info">
+            <view class="goods_name wes_1">{{newCouponData.goodsOneDetail.name}}</view>
+            <view class="goods_price">
+              ￥{{newCouponData.goodsOneDetail.promotionprice/100}}
+              <text class="old_price">￥{{newCouponData.goodsOneDetail.price/100}}</text>
+            </view>
+          </view>
+        </view>
+        <view class="coupon_goods flex flex_center" data-id="{{newCouponData.goodsTwoDetail.id}}" catchtap="goDetail" v-if="{{newCouponData.goodsTwoDetail!=null}}">
+          <image class="goods_img" src="{{headimg+newCouponData.goodsTwoDetail.topimg}}"></image>
+          <view class="goods_info">
+            <view class="goods_name wes_1">{{newCouponData.goodsTwoDetail.name}}</view>
+            <view class="goods_price">
+              ￥{{newCouponData.goodsTwoDetail.promotionprice/100}}
+              <text class="old_price">￥{{newCouponData.goodsTwoDetail.price/100}}</text>
+            </view>
+          </view>
+        </view>
+        <image class="ad_img" src="{{newCouponData.bgImg}}"></image>
+      </view>
+      <button class="get_btn" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">立即领取</button>
+    </view>
+  </view>
+  <view wx:if="{{modelFlag}}" class="mask" bindtap="closeModel" />
+  <!-- 优惠卷弹窗end -->
+  <login-component wx:if="{{showLogin}}" bind:closeModal="closeLogin" bind:openModal="openLogin" />
+</view>

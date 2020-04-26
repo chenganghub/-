@@ -1,0 +1,73 @@
+/* components/memberLevel.wxss */
+
+.container_box_top {
+  width: 710rpx;
+  margin: 20rpx auto;
+  height: 220rpx;
+  border-radius: 18rpx;
+  background: linear-gradient(-90deg,rgba(204,194,160,1),rgba(235,228,208,1));
+  box-shadow: 8rpx 16rpx 18rpx hsla(0, 0%, 0%, 0.1);
+  padding: 30rpx 48rpx;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 100;
+}
+
+.container_box_top .container_box_top_name text {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #353535;
+  margin-left: 10rpx;
+  margin-bottom: 4rpx;
+}
+
+.container_box_top .container_box_top_name .rule_btn{
+  font-size: 26rpx;
+  font-weight: normal;
+}
+
+.container_box_top .container_box_top_name image:nth-child(1) {
+  width: 58rpx;
+  height: 58rpx;
+}
+
+.container_box_top image.vipcaed_bg {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: -120rpx;
+  z-index: -1;
+}
+
+.container_box_top .container_box_top_level {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container_box_top .container_box_top_level .left {
+  color: #353535;
+}
+
+.container_box_top .container_box_top_level .left  text {
+  font-size: 36rpx;
+  font-weight: bold;
+}
+
+.container_box_top .container_box_top_level .right {
+  font-size: 22rpx;
+  color: #353535b4;
+}
+
+.container_box_top .container_box_top_progress {
+  height: 8rpx;
+  background: rgba(255, 255, 255, 0.6);
+  margin: 36rpx 0 19rpx;
+  border-radius: 4rpx;
+  overflow: hidden
+}
+
+.progress view {
+  background: #4B4C50;
+  height: 100%;
+}

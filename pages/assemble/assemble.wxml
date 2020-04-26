@@ -1,0 +1,201 @@
+<import src="../../wxParse/wxParse.wxml" />
+<view class="container {{showchose ? 'fix_wrap':''}}">
+	<view class="detailcontent">
+		<!-- 轮播start -->
+		<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="{{indicatorColor}}" indicator-active-color="{{activeColor}}" circular="{{circular}}">
+			<block wx:for="{{imgarr}}" wx:key='index'>
+				<swiper-item>
+					<image src="{{item}}" class="slide-image" />
+				</swiper-item>
+			</block>
+		</swiper>
+		<view class="assemble_tip">
+			<view class="assemble_tip_left">
+				<view style="font-size:28rpx">￥<text style="font-size:40rpx">{{(baseinfo.teamprice)/100}}</text></view>
+				<view>
+					<view style="font-size:24rpx">￥{{price}}</view>
+				</view>
+			</view>
+			<view class="assemble_tip_right">
+				<view>
+					<image src="../pic/grooup.png"></image>
+					{{baseinfo.personlimit}}人团
+				</view>
+
+				<view>已拼
+					<text>{{baseinfo.donecount}}</text>件
+				</view>
+			</view>
+
+		</view>
+		<!-- 轮播start -->
+		<view class="goodcontent">
+			<view class="goodName wes_2">{{data.name}}</view>
+			<view class="groupName" style=" color:rgba(254,143,113,1);font-size:24rpx;">
+				<image src="../pic/groupimg.png"></image>
+				{{groupName}}
+			</view>
+			<view class="goodSituation">
+				<view style="font-size:22rpx;float: left;">
+					有效时间：{{baseinfo.starttime}}~{{baseinfo.endtime}}
+				</view>
+				<view bindtap="activity">
+					活动规则>>
+				</view>
+			</view>
+		</view>
+
+		<view class="big_choice" wx:if="{{typesku==false}}">
+			<view class="choice" catchtap="choicetap">
+				<view class="choicePiece" catchtap="choicetap">
+					<text>选择</text>
+					<text>{{count}}</text>
+					<text>{{goodsunit}}</text>
+				</view>
+				<image src="../pic/right.png"></image>
+			</view>
+		</view>
+		<view class="big_choice" wx:else>
+			<view class="choice" catchtap="choicetap">
+				<view class="choicePiece" catchtap="choicetap">
+					<text>请选择</text>
+					<text style="margin-right:10rpx;">{{selectedSku1}}</text>
+					<text>{{selectedSku2}}</text>
+				</view>
+				<image src="../pic/right.png"></image>
+			</view>
+		</view>
+		<view class="postage">
+			<image src="../pic/xuanzhong.png"></image>
+			<text>邮费{{postfee/100}}元</text>
+		</view>
+		<view wx:if='{{false}}' class="evaluate">
+			<view class="evaluateText">
+				<image src="../pic/changfangxing.png"></image>
+				<text>评价</text>
+				<text>(0)</text>
+			</view>
+		</view>
+
+		<modal visible="{{visible}}" bind:handleClose="handleClose">
+			<view slot="content">
+				<view class="modal_title">是否参与{{visibleName}}的拼团？</view>
+				<view class="modal_tips">
+					<text>{{visiblecomplete}}/{{visiblePersonlimit}}</text> 还差
+					<text>{{visibleLeftperson}}</text> 人，剩余
+					<text>{{countDownList[0]}}</text> </view>
+				<scroll-view class="modal_users" scroll-x>
+					<view class="modal_userss">
+						<view class="modal_users_item" wx:for="{{visiblEmembers}}" wx:key="index">
+							<image class="modal_users_item_img" src='{{item.avatarUrl}}'></image>
+							<view class="modal_users_item_tag" wx:if='{{item.isleader}}'>团长</view>
+						</view>
+					</view>
+				</scroll-view>
+			</view>
+			<view class="modal_box_btns" slot="btns">
+				<view style="color: #888888" bindtap="handleClose">取消</view>
+				<view style="color: #FE8F71" data-item="{{item}}" bindtap="goGroup">确认拼团</view>
+			</view>
+		</modal>
+		<!-- 拼团start -->
+		<view class="assemble" wx:if="{{groupGoodss.length>0}}">
+			<view class="assemble_text">
+				<text>{{groupGoodss.length}}人正在拼单</text>
+				<text   bindtap="detailClick">更多 ></text>
+			</view>
+			<view class="assemble_list">
+				<assembleListItem title="波斯猫89757" imgUrl="" list="{{groupGoods}}" leftPerson="1" leftTime="20:09:17" bind:getAssemble="getAssembles" />
+			</view>
+		</view>
+		<!-- end 拼团 -->
+
+		<view class="details">
+			<view class="detailsText">
+				<!-- <image src="../pic/changfangxing.png"></image> -->
+				<text>商品详情</text>
+			</view>
+		</view>
+		<view class="goodsDetail">
+			<template is="wxParse" data="{{wxParseData:article.nodes}}" />
+		</view>
+	</view>
+	<!-- 底部start -->
+	<view class="position_bottom">
+		<view class="detail_bottom">
+			<view class="bottom">
+				<button class="bottom_icon" open-type="contact">
+					<image src="../pic/serve.png"></image>
+					<text>客服</text>
+				</button>
+				<view class="bottom_icon" catchtap="collectiongoods" data-id="{{id}}">
+					<image src="../pic/{{iscollect?'shoucang':'shoucang2'}}.png"></image>
+					<text>{{iscollect?'已收藏':'收藏'}}</text>
+				</view>
+			</view>
+			<view class="bayNow" catchtap="btntap">
+				<view wx:if="{{!group}}">创建拼团</view>
+				<view wx:else>立即加入</view>
+				<view>￥0.01起</view>
+			</view>
+		</view>
+	</view>
+	<!-- 底部end -->
+	<view wx:if='{{showchose}}' class='sizewrap'>
+		<view catchtap="closechose" class='mask'></view>
+		<view class='white' style='animation:{{anim}}'>
+			<view class='top'>
+				<image class='thumb' src="{{topimg}}"></image>
+				<view class='topword'>
+					<text>￥{{totalPrice}}</text>
+					<view>
+						<text>{{baseinfo.personlimit}}人团</text>
+						<text>库存{{stock}}</text>
+						<text>限购{{baseinfo.buymax}}</text>
+					</view>
+
+					<!-- <text>已选：{{count}},共{{count}}{{goodsunit}}</text> -->
+				</view>
+				<view catchtap='closechose' class='close'>
+					<image src="../pic/circle_close.png"></image>
+				</view>
+			</view>
+			<scroll-view class="select_wrap" scroll-y>
+				<block wx:if="{{specList && specList.length}}">
+					<view class='select_item'>
+						<text class="select_title">{{specList[0].specName}}</text>
+						<view class='select_content flex_wrap'>
+							<view class="standard_item {{specList[0].specInfo[specIndex].id === item.id ? 'active':''}}" wx:for="{{specList[0].specInfo}}" wx:key="index" data-index="{{index}}" data-items="{{item}}" bindtap="selectSpec">{{item.specValueName}}</view>
+						</view>
+					</view>
+					<block wx:if="{{specList[0].specInfo[specIndex].detailValue && specList[0].specInfo[specIndex].detailValue.length}}">
+						<view class='select_item'>
+							<text class="select_title">{{specList[0].specInfo[specIndex].detailValue[0].valueSpecName}}</text>
+							<view class='select_content flex_wrap'>
+								<view class="standard_item {{specValue === item.specValueName ? 'active':''}}" wx:for="{{specList[0].specInfo[specIndex].detailValue[0].detailValueInfo}}" wx:key="index" data-items="{{item}}" data-index="{{index}}" bindtap="selectSpecValue">{{item.specValueName}}</view>
+							</view>
+						</view>
+					</block>
+				</block>
+				<view class='select_item flex_sb'>
+					<text class="select_title">购买数量</text>
+					<view class='select_count flex'>
+						<view class="count_btn" catchtap='counttap' data-code='0'>-</view>
+						<view class="count">{{count}}</view>
+						<view class="count_btn" catchtap='counttap' data-code='1'>+</view>
+					</view>
+				</view>
+			</scroll-view>
+			<button disabled="{{!stock}}" class="confirm_btn {{!stock ? 'disabled':''}}" bindtap='sizeconfirm'>确定</button>
+		</view>
+	</view>
+	<login-component wx:if="{{showLogin}}" bind:closeModal="closeLogin" bind:openModal="openLogin" />
+	<search wx:if="{{issearch}}" bind:cancelClick="cancelClicks" list="{{groupGoodss}}" />
+	<modal visible="{{activity}}" bind:handleClose="handleClose">
+		<view slot="content" class="activity" style="background-image:url('{{staticimg}}activity.png')">
+			<view class="activity_body">{{baseinfo.rules}}</view>
+			<view class="activity_button" bindtap="handleClose">我知道了</view>
+		</view>
+	</modal>
+</view>
+<button class="btn_contact" open-type="contact"></button>

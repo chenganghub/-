@@ -1,0 +1,76 @@
+<view style="width:100%;height: 83%;padding: 100rpx 0;">
+	<!--components/assembleOrderItem/assembleOrderItem.wxml-->
+	<block wx:if="{{list.length>0}}">
+		<view class="assemble_order_item" wx:for="{{list}}" wx:key="index">
+			<view class="assemble_order_item_header">
+				<view class="assemble_order_item_header_time">
+					活动时间 {{item.starttime}} ~ {{item.endtime}}
+				</view>
+				<button open-type='share' class="assemble_order_item_header_share" wx:if="{{active==0}}" data-item="{{item}}">分享</button>
+			</view>
+			<!-- main start -->
+			<view class="assemble_order_item_main" data-item="{{item}}" catchtap="afterGetAssembleInfo">
+				<image mode="aspectFit" class="assemble_order_item_main_img" src="{{headimg+item.topimg}}"></image>
+				<view class="assemble_order_item_main_content">
+					<view class="assemble_order_item_main_content_title">{{item.goodsname}}</view>
+						<view class="sku"><text>{{item.specinfo[0].specValueName}}</text><text>{{item.specinfo[0].secondValues[0].specValueName}}</text></view>
+					<view class="assemble_order_item_main_content_total">
+						<text>￥{{(item.teamprice)/100}}</text>
+						<text>已拼成{{item.donecount}}件</text>
+					</view>
+				</view>
+			</view>
+			<!-- main end -->
+			<!-- bottom start -->
+			<view class="{{showTime ? 'assemble_order_item_bottom' : 'assemble_order_item_bottom_no'}}">
+				<view class="assemble_order_item_bottom_left" wx:if="{{showTime}}">
+					<image mode="aspectFit" src="../../pages/pic/time.png"></image>
+					<text>剩余{{countDownList[index]}}</text>
+				</view>
+
+				<view class="assemble_order_item_bottom_right">
+					<view> <text wx:if="{{item.isleader==1}}">我创建的</text> <text wx:else>我参与的</text> {{item.nowperson}}
+					</view>
+					<view class="modal_userss" bindtap="viewJoinUsers" data-item="{{item}}">
+						<view class="modal_users_item" wx:for="{{item.members}}" wx:for-item="items" wx:key="index">
+							<image mode="aspectFit" class="modal_users_item_img" src="{{items.avatarUrl}}"></image>
+							<view class="modal_users_item_tag" wx:if="{{items.isleader==1}}">团长</view> 
+						</view>
+
+					</view>
+					<text style="font-size:25rpx;color:#888888">></text>
+				</view>
+			</view>
+			<!-- bottom end -->
+			<!-- 查看加入用户弹框 start -->
+			<modal visible="{{joinModalVisible}}" bind:handleClose="handleCloseJoinModal" modal_box_content="modal_box_content">
+				<view slot="content" class="modal_content">
+					<view class="modal_content_title">
+						已加入用户
+						<text>{{imglist.nowperson}}</text>
+					</view>
+					<view class="modal_content_list">
+						<view class="modal_users">
+							<view class="modal_users_item" wx:for="{{imglist.members}}" wx:key="index">
+								<image mode="aspectFit" class="modal_users_item_img" src="{{item.avatarUrl}}"></image>
+								<view class="modal_users_item_tag" wx:if="{{item.isleader==1}}">团长</view>
+								<view class="modal_users_item_text text-overflow-single" wx:if='{{item.username.length>1}}'>{{item.username}}</view>
+								<view class="modal_users_item_text" wx:else>待加入</view>
+							</view>
+
+						</view>
+					</view>
+				</view>
+
+				<image src="../../pages/pic/close_white.png" mode="aspectFit" slot="btns" class="modal_cancel" bindtap="handleCloseJoinModal"></image>
+			</modal>
+		</view>
+	</block>
+	<view wx:else class="error">
+		<block>
+			<image src="../../pages/pic/error.png" mode="aspectFit"></image>
+			<view class="error_text">你还没有拼团中的商品~</view>
+			<view bindtap="goGroup" class="goGroup">去拼团</view>
+		</block>
+	</view>
+</view>

@@ -1,0 +1,166 @@
+<view class='minecontainer' style="">
+  <view class="top">
+    <view class="bfix" style="background-image:url('../pic/center_head_bg.png')">
+      <image src="../pic/member-bg.png" class="minebg" mode="aspectFit"></image>
+      <view class="hitem">
+        <view wx:if='{{haslogin}}' class='headl'>
+          <image catchtap="tomember" mode="aspectFill" src='{{avatar}}' class="avatar"></image>
+          <view class="member_show" bindtap="toDuty">
+            <image src="../pic/vip.png" mode="aspectFit" class="vip"></image>
+            <text>{{growthName}}</text>
+          </view>
+          <view class="info">
+            <view catchtap="tomember" class="user">{{name}}</view>
+            <view wx:if="{{rank}}" class="touxian">
+              <image src="../pic/center_star.png" mode="aspectFit"></image>
+              <text>{{rank}}</text>
+            </view>
+          </view>
+        </view>
+        <view wx:else class="login">
+          <button class='head' bindtap="loginModal" hover-class="btn-hover">
+            <image class="headimg" src='../pic/center_phone.png'></image>
+            <view class="growthValue">
+              <text class="info">点击登录</text>
+            </view>
+          </button>
+        </view>
+        <!-- start 右侧按钮 -->
+        <view class="right-btns">
+          <image bindtap="mytidings" src="../pic/center_lingdang.png"></image>
+          <image catchtap="tomember" src="../pic/center_my_set.png"></image>
+        </view>
+      </view>
+    </view>
+    <!-- start 关注和粉丝 -->
+    <view class="fandf">
+      <view class="item" catchtap="tofollow" data-type="0">
+        <text>关注</text>
+        <text>{{follow}}</text>
+      </view>
+      <view class="item" catchtap="tofollow" data-type="1">
+        <text>粉丝</text>
+        <text>{{fans}}</text>
+      </view>
+    </view>
+    <!-- end 关注和粉丝 -->
+  </view>
+  <view class='list'>
+    <!-- <view catchtap='tomykitchen' class='item'>
+					<image src='../pic/my_kitchen.png'></image>
+					<text>我的厨房</text>
+				</view> -->
+    <view catchtap='toorder' class='item'>
+      <image src='../pic/center_my_order.png'></image>
+      <text>我的订单</text>
+    </view>
+    <view catchtap='tocollection' class='item'>
+      <image src='../pic/center_my_collect.png'></image>
+      <text>我的收藏</text>
+    </view>
+    <view catchtap='toGroup' class='item'>
+      <image src='../pic/group.png'></image>
+      <text>我的团购</text>
+    </view>
+    <view catchtap='toinvitation' class='item'>
+      <image src='../pic/center_my_task.png'></image>
+      <text>会员任务</text>
+    </view>
+  </view>
+  <view class="grid"></view>
+  <!-- start 我的财富 -->
+  <view class="mywealth">
+    <view class="position_box">
+      <view class="showTitle">
+        <text>我的财富</text>
+      </view>
+    </view>
+    <view class="items">
+      <view catchtap="tomystore" class="item">
+        <text>¥{{store ||0}}</text>
+        <text>余额</text>
+      </view>
+      <view catchtap="tomycoupon" class="item">
+        <text>{{couponcount||0}}</text>
+        <text>卡券</text>
+      </view>
+      <view catchtap="tointegral_growth" data-index="2" class="item">
+        <text>{{points ||0}}</text>
+        <text>可用积分</text>
+      </view>
+    </view>
+  </view>
+  <!-- end 我的财富 -->
+  <view class="grid"></view>
+  <view class="blist">
+    <!-- 秀秀列表start -->
+    <view class="shouWrap">
+      <view class="position_box">
+        <view class="showTitle">
+          <text>我的秀秀</text>
+          <text class="title_right">共{{total}}条</text>
+        </view>
+      </view>
+      <!-- 秀秀列表start -->
+      <view class="showWrap" wx:if="{{showListLeft.length + showListRight.length > 0}}">
+        <view class="showList">
+          <view class="position_show" wx:for='{{showListLeft}}' wx:key='{{item.item.id}}'>
+            <view wx:if="{{item.item.state=='WAIT'}}" class="wait">审核中</view>
+            <view class="show">
+              <view class="img_wrap flex_c">
+                <image mode="widthFix" class="topimg" data-id='{{item.item.id}}' catchtap="toshowdetail" src="{{headimg+item.imgurl}}" data-index="{{index}}" bindload="imageLoad"></image>
+              </view>
+              <view class="listText">
+                <view class="title wes_2" data-id='{{item.item.id}}' catchtap="toshowdetail">
+                  {{item.item.contents}}
+                </view>
+                <view class="user">
+                  <view class="userleft" data-id='{{item.item.id}}' catchtap="toshowdetail">
+                    <image class="headsculpture" src="{{item.avatar}}" mode="aspectFill"></image>
+                    <text class="username">{{item.name || ''}}</text>
+                  </view>
+                  <view class="fabulous">
+                    <image catchtap="thumbsup" data-id='{{item.item.id}}' data-isfavor="{{item.isfavor}}" src="../pic/{{item.isfavor?'dianzanhou':'dianzan_small'}}.png"></image>
+                    <text>{{item.favorcount || ''}}</text>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="showList">
+          <view class="position_show" wx:for='{{showListRight}}' wx:key='{{item.item.id}}'>
+            <view wx:if="{{item.item.state=='WAIT'}}" class="wait">审核中</view>
+            <view class="show">
+              <view class="img_wrap flex_c">
+                <image mode="widthFix" class="topimg" data-id='{{item.item.id}}' catchtap="toshowdetail" src="{{headimg+item.imgurl}}" data-index="{{index}}" bindload="imageLoad"></image>
+              </view>
+              <view class="listText">
+                <view class="title wes_2" data-id='{{item.item.id}}' catchtap="toshowdetail">
+                  {{item.item.contents}}
+                </view>
+                <view class="user">
+                  <view class="userleft" data-id='{{item.item.id}}' catchtap="toshowdetail">
+                    <image class="headsculpture" src="{{item.avatar}}" mode="aspectFill"></image>
+                    <text class="username">{{item.name || ''}}</text>
+                  </view>
+                  <view class="fabulous">
+                    <image catchtap="thumbsup" data-id='{{item.item.id}}' data-isfavor="{{item.isfavor}}" src="../pic/{{item.isfavor?'dianzanhou':'dianzan_small'}}.png"></image>
+                    <text>{{item.favorcount || ''}}</text>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view wx:else class="listEmpty">
+        <image class="empty_img" src="../pic/mine_empty.png"></image>
+        <view class="tips_txt">你还没上传任何秀秀哦，赶快晒晒美食吧！</view>
+        <button class="sub_btn" bindtap="toSubmit">马上上传</button>
+      </view>
+      <!-- 秀秀列表end -->
+    </view>
+  </view>
+  <login-component wx:if="{{showLogin}}" disabledMask bind:closeModal="closeLogin" bind:afterLogin="afterLogin" bind:openModal="openLogin" />
+</view>

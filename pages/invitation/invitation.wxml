@@ -1,0 +1,34 @@
+<view class='container'>
+   <view class="invitationHeader" style="background-image:url('{{staticimg}}invitationbanner.jpg')">
+      <view class="Header_top">
+        <text class="number">已邀请人数</text>
+        <view class="top_text">
+            <text>{{total}}</text>
+            <text>人</text>
+        </view>
+      </view>
+      <view class="Header_bottom">
+        <text>今日邀请： 0人</text>
+        <text>本月邀请： 1人</text>
+      </view>
+   </view>
+   <view class="invitationlist">
+      <view class="list_header">
+        <text class="portrait">头像</text>
+        <text class="account">账号</text>
+        <text class="registrationdate">注册绑定时间</text>
+      </view>
+      <block wx:for='{{list}}'>
+      <view class="list">
+        <view class="head">
+          <image src="{{item.avatarUrl}}" ></image>
+        </view>  
+        <text class="phone">{{item.phone==null?'--':item.phone}}</text>
+        <text class="date">{{item.updateDate}}</text>
+      </view>
+      </block>
+      <view wx:if='{{reachbtm&&list.length>0}}' class="btmword center">
+				<text>已经到底了</text>
+			</view>
+   </view>
+</view>

@@ -1,0 +1,48 @@
+<view class="group">
+	<view class="group_header" bindtap="handleActive">
+		<view>
+			<view class="group_headerItem {{active === 0 ? 'group_active' : ''}}" data-index="{{0}}">拼团中
+				<view class="active" wx:if="{{active === 0}}"></view>
+			</view>
+			<view class="group_headerItem {{active === 1 ? 'group_active' : ''}}" data-index="{{1}}">已拼成
+				<view class="active" wx:if="{{active === 1}}"></view>
+
+			</view>
+			<view class="group_headerItem {{active === 2 ? 'group_active' : ''}}" data-index="{{2}}">已失效
+				<view class="active" wx:if="{{active === 2}}"></view>
+
+			</view>
+		</view>
+	</view>
+	<block>
+		<assembleOrderItem showShare="{{active === 0 && true}}" active='{{active}}' showTime="{{active === 0 && true}}" bind:viewJoinUsers="viewJoinUsers" bind:getAssembleInfo="handleEndedVisible"></assembleOrderItem>
+	</block>
+
+
+	<!-- 查看加入用户弹框 end -->
+
+	<modal visible="{{endedVisible}}" bind:handleClose="handleCloseEndedVisible">
+		<view class="modal_end" slot="content">
+			<image mode="aspectFit" class="modal_end_img" src="../pic/ended.png"></image>
+			<view>活动已结束</view>
+		</view>
+		<view class="modal_end_btns" slot="btns">
+			<view bindtap="handleCloseEndedVisible">我知道了</view>
+			<view style="color: #FE8F71" bindtap="goGroup">更多活动</view>
+		</view>
+	</modal>
+
+	<!-- 未开始 -->
+	<modal visible="{{startedVisible}}" bind:handleClose="handleCloseEndedVisible">
+		<view class="modal_end" slot="content">
+			<image mode="aspectFit" class="modal_end_img" src="../pic/nostart.png"></image>
+			<view>活动还未开始哦~</view>
+			<view>活动时间 {{starttime}}~{{endtime}}</view>
+		</view>
+		<view class="modal_end_btns" slot="btns">
+			<view bindtap="handleCloseEndedVisible">我知道了</view>
+			<view style="color: #FE8F71" bindtap="goGroup">更多活动</view>
+		</view>
+	</modal>
+
+</view>

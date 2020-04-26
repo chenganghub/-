@@ -1,0 +1,19 @@
+<view class="bookstore_container">
+  <view class="header_box" style="background-image:url('{{staticimg}}book_top_bg.png')">
+    <image class="header" src="{{staticimg}}deng_eva.png" />
+    <text>体验做菜，才可以点亮秘籍哦！</text>
+  </view>
+  <view class="book_wrap flex_wrap">
+    <view wx:for="{{list}}" wx:key="{{item.id}}" class="book_item {{item.isGet ? 'active':''}}" data-index="{{index}}" bindtap="toDetail">
+      <view class="book_img" style="background-image:url('{{staticimg}}{{item.isGet ? 'book_active_bg.png':'book_bg2.png'}}')">
+        <view class="food_name">{{item.name}}</view>
+      </view>
+      <view class="book_title">{{item.name}}</view>
+      <view class="book_detail" wx:if="{{item.isGet}}">
+        查看秘籍
+        <image class="btn_arrow" src="../pic/btn_arrow.png" />
+      </view>
+    </view>
+  </view>
+  <image class="page_bottom" src="../pic/page_bottom.png" wx:if="{{list.length>0}}" />
+</view>

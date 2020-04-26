@@ -1,0 +1,25 @@
+<block>
+  <view class="showLogistics">
+    <image class="model_header" src="/pages/pic/wuliu.png"></image>
+    <view class="model_body">
+      <view class="show_item">
+        <view class="show_title">物流状态：</view>
+        <view class="show_content">运输中</view>
+      </view>
+      <view class="show_item">
+        <view class="show_title">发货时间：</view>
+        <view class="show_content">{{infoData.sendgoodstime}}</view>
+      </view>
+      <view class="show_item">
+        <view class="show_title">快递公司：</view>
+        <view class="show_content">{{infoData.expresscompany}}</view>
+      </view>
+      <view class="show_item">
+        <view class="show_title">快递单号：</view>
+        <view class="show_content">{{infoData.expressnumber}}</view>
+      </view>
+    </view>
+    <image class="close_icon" src="/pages/pic/white_circle.png" bindtap="closeLogistics"></image>
+  </view>
+  <view class="mask"></view>
+</block>

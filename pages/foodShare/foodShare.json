@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "painter": "/components/painter/painter"
+  },
+  "navigationStyle": "custom",
+  "disableScroll": true
+}

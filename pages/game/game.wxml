@@ -1,0 +1,45 @@
+<view class="game_container" style="background-image:url('{{staticimg}}game_bg.png')">
+  <view class="game_container_tips">
+    <text wx:if="{{manner === 0}}">剩余抽奖次数：{{usercount=='-1'?data.limit:usercount}}次</text>
+    <text >可用积分：{{integral}}</text>
+  </view>
+  <view wx:if="{{ismodshow}}">
+    <view class="mod" catchtap="ok"></view>
+    <view class="mod-content">
+      <view>{{data.rules}}</view>
+      <view class="ok" catchtap="ok">确定</view>
+    </view>
+  </view>
+  <view class="header">
+    <image class="game_title" src="../pic/game_title.png"></image>
+    <view class="rule" catchtap="rule">活动规则</view>
+  </view>
+  <view wx:if="{{manner === 1}}" class="surplus">{{integralNumber}}积分抽1次</view>
+  <view class="main">
+    <view class="canvas-container">
+      <view animation="{{animationData}}" class="canvas-content" style="background-image:url('{{staticimg}}pan_bg.png')">
+        <view class="canvas-list">
+          <view class="canvas-item" wx:for="{{awardsList}}" wx:key="unique" style="-webkit-transform: rotate({{item.turn}});transform: rotate({{item.turn}})">
+            <view class="canvas-item-text wes_1">{{item.award.name}}</view>
+            <image class="img" mode="aspectFit" src="{{item.award.imgurl}}"></image>
+          </view>
+        </view>
+      </view>
+      <image bindtap="playReward" class="canvas-btn {{btnDisabled}}" src="{{staticimg}}start_btn.png" />
+    </view>
+  </view>
+  <view class="tips">点击我的奖品领取我的奖品</view>
+  <view class="btn_group flex_sb">
+    <button class="common_btn" style="background-image:url('{{staticimg}}btn_bg.png')" catchtap="tomyprize">我的奖品</button>
+    <button open-type="share" class="common_btn" style="background-image:url('{{staticimg}}btn_bg.png')">分享</button>
+  </view>
+  <view class="prize_list_box">
+    <view class="prize_list_animate" style="animation: {{prize.length * 2}}s wordsLoop linear infinite normal;">
+      <view wx:for="{{prize}}" wx:key="unique">
+        {{item.nickName}}
+        <text class="m_20">抽中</text>
+        <text class="prize_color">{{item.goodsName}}</text>
+      </view>
+    </view>
+  </view>
+</view>

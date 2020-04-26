@@ -1,0 +1,267 @@
+.confirmcontainer {
+  padding-bottom: 200rpx;
+}
+
+.sendtype {
+  background: #fff;
+  padding: 25rpx;
+}
+
+.sendtype text {
+  margin: 15rpx;
+  padding: 10rpx 20rpx;
+  border-radius: 35rpx;
+  color: red;
+  font-size: 30rpx;
+  border: 1rpx solid red;
+}
+
+.sendtype .red {
+  background: red;
+  color: #fff;
+}
+
+picker {
+  width: 40vw;
+}
+
+picker view {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 28rpx;
+  color: #363636;
+  font-weight: bold;
+}
+
+.address {
+  display: flex;
+  background: #fff;
+  padding: 30rpx;
+  border-radius: 0px 0px 20rpx 20rpx;
+}
+
+.address .address_detail {
+  line-height: 1;
+}
+
+.address .user_name {
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+.address .user_phone {
+  font-size: 24rpx;
+}
+
+.address .address_txt {
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 24rpx;
+}
+
+.address .location_icon {
+  width: 22rpx;
+  height: 30rpx;
+  margin-right: 20rpx;
+}
+
+.address .noaddress {
+  font-size: 32rpx;
+  line-height: 1;
+}
+
+.address .right_arrow {
+  width: 24rpx;
+  height: 24rpx;
+}
+
+.bottom {
+  position: fixed;
+  bottom: 0;
+  height: 120rpx;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  z-index: 100;
+  background: #fff;
+  box-shadow: 0px -4px 40px 0px rgba(50, 55, 90, 0.08);
+  padding: 0 20rpx;
+  box-sizing: border-box;
+}
+
+.bottom .btn {
+  width: 260rpx;
+  height: 88rpx;
+  background: linear-gradient(-90deg, rgba(254, 143, 113, 1), rgba(254, 203, 164, 1));
+  color: #fff;
+  font-size: 32rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 44rpx;
+}
+
+.online {
+  width: 100%;
+  height: 100%;
+  background: #FE8F71;
+  color: #fff;
+  font-size: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.offline {
+  width: 100%;
+  height: 100%;
+  background: #f00;
+  color: #fff;
+  font-size: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bottom .content {
+  margin-right: 40rpx;
+  font-size: 28rpx;
+  display: flex;
+}
+
+.bottom .content .total_price {
+  font-size: 32rpx;
+  color: #e8560f;
+  font-weight: bold;
+  line-height: 48rpx;
+}
+
+.bottom .content text {
+  font-size: 36rpx;
+}
+
+.goods {
+  margin: 20rpx 0;
+  padding: 30rpx;
+  background: #fff;
+  border-radius: 20rpx;
+}
+
+.goods .item {
+  margin-bottom: 30rpx;
+}
+
+.goods .item:last-child {
+  margin-bottom: 0;
+}
+
+.goods image {
+  width: 120rpx;
+  height: 120rpx;
+}
+
+.goods .product_name {
+  width: 320rpx;
+  font-size: 24rpx;
+  margin-left: 30rpx;
+  color: #010101;
+}
+
+.goods .content .count {
+  font-size: 24rpx;
+  color: #333;
+  text-align: right;
+  margin-top: 24rpx;
+}
+
+.goods input {
+  font-size: 26rpx;
+}
+
+.goods .content .bottom1 {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25rpx;
+}
+
+.goods .content .price {
+  color: #333;
+  font-size: 28rpx;
+}
+
+.goods .content .price.score {
+  color: #FE8F71;
+}
+
+.goods .content .size {
+  color: #888;
+  font-size: 28rpx;
+  margin: 10rpx 0;
+}
+
+.coupon_select {
+  background-color: #fff;
+  margin: 20rpx 0;
+  line-height: 88rpx;
+  border-radius: 20rpx;
+  padding: 0 30rpx;
+}
+
+.coupon_select .right_arrow {
+  width: 22rpx;
+  height: 22rpx;
+  margin-left: 10rpx;
+}
+
+.total_wrap {
+  background-color: #fff;
+  border-radius: 20rpx;
+  padding: 30rpx;
+}
+
+.total_item {
+  margin-bottom: 30rpx;
+  line-height: 1;
+  font-size: 28rpx;
+  /* font-weight: bold; */
+}
+
+.total_item:last-child {
+  margin-bottom: 0;
+}
+
+.item_title {
+  font-weight: normal;
+}
+
+.msg_input {
+  margin-left: 30rpx;
+  font-weight: normal;
+}
+.order_message {
+  margin-top: 20rpx;
+  border-radius: 20rpx;
+  background-color: #fff;
+  padding: 30rpx;
+}
+
+.order_message_item,
+.order_message_total {
+  font-size: 28rpx;
+  margin-bottom: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.order_message>view:nth-child(3) {
+  border-bottom: 1px solid rgba(238, 238, 238, 1);
+}
+
+.order_message_item,
+.order_message_total view:nth-child(2) {
+  font-weight: 700;
+}

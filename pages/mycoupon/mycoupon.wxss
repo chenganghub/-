@@ -1,0 +1,136 @@
+/* pages/VoucherCenter/VoucherCenter.wxss */
+
+.container {
+  padding-bottom: 50rpx;
+  width: 100%;
+}
+
+.right_btn {
+  width: 70%;
+  height: 48rpx;
+  text-align: center;
+  color: white;
+  font-size: 26rpx;
+  line-height: 50rpx;
+  background: linear-gradient(-90deg, rgba(254, 143, 113, 1), rgba(254, 203, 164, 1));
+  border-radius: 24px;
+  z-index: 100;
+}
+.voucherheader {
+  position: fixed;
+  background: white;
+  width: 100%;
+  height: 100rpx;
+  text-align: center;
+  padding: 0 2%;
+}
+
+.voucher_tab {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100rpx;
+  box-sizing: border-box;
+}
+
+.on {
+  color: #fe8f71;
+  border-bottom: 8rpx solid #fe8f71;
+}
+
+.tab {
+  width: 32%;
+  height: 100%;
+  line-height: 100rpx;
+}
+
+.voucherWrap {
+  padding-top: 100rpx;
+}
+
+.vouter {
+  margin-top: 30rpx;
+  height: 200rpx;
+  width: 92%;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  margin: 30rpx auto;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.voutercontent {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.left {
+  width: 10%;
+  height: 100%;
+  visibility: hidden;
+}
+.first {
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.second {
+  font-size: 24rpx;
+  margin: 8rpx 0 10rpx 0;
+}
+.third {
+  font-size: 24rpx;
+  opacity: 0.6;
+}
+.content_center {
+  width: 60%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+  color: #fff;
+}
+
+.right {
+  width: 30%;
+  height: 100%;
+  /* background: pink; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.right_content {
+  width: 100%;
+  height: 84%;
+  /* background: bisque; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.right_content text {
+  font-size: 30rpx;
+}
+
+.right_btn {
+  width: 70%;
+  height: 48rpx;
+  text-align: center;
+  color: white;
+  font-size: 26rpx;
+  line-height: 50rpx;
+  background: linear-gradient(
+    -90deg,
+    rgba(254, 143, 113, 1),
+    rgba(254, 203, 164, 1)
+  );
+  border-radius: 24px;
+}
+
+/* .isgot{
+  background: #ccc;
+} */

@@ -1,0 +1,19 @@
+<!--pages/list/list.wxml-->
+<view class="container">
+	<view class="goodslist">
+		<view class="good" wx:for='{{goods}}' wx:key='{{item[0].id}}' bindtap="jumptogoodsdetail" data-id="{{item[0].id}}">
+			<view class="goodsimage">
+				<image src='{{item[1]}}'></image>
+			</view>
+			<view class="goodscontent">
+				<view class="goodstitle">{{item[0].name}}</view>
+				<view class="price">
+					￥{{item[2]}}
+				</view>
+			</view>
+		</view>
+		<view wx:if='{{reachbtm&&goods.length>0}}' class="btmword center">
+			<text>已经到底了</text>
+		</view>
+	</view>
+</view>

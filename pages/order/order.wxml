@@ -1,0 +1,79 @@
+<scroll-view class='ordercontainer' scroll-y="{{!showCancelModal}}" bindscrolltolower='bindscrolltolower'>
+	<view class='tabbar flex_sb'>
+		<view catchtap='tabtap' data-index='0' class='{{tabindex==0?"check":""}}'>全部 </view>
+		<view catchtap='tabtap' data-index='1' class='{{tabindex==1?"check":""}}'>待付款</view>
+		<view catchtap='tabtap' data-index='2' class='{{tabindex==2?"check":""}}'>待发货</view>
+		<view catchtap='tabtap' data-index='3' class='{{tabindex==3?"check":""}}'>待收货</view>
+		<view catchtap='tabtap' data-index='4' class='{{tabindex==4?"check":""}}'>已完成</view>
+	</view>
+	<view wx:if='{{list.length>0}}' class='wrap'>
+		<block wx:for='{{list}}' wx:key="index">
+			<view class='item'>
+				<view class='top flex_sb' data-index='{{index}}' data-state='{{item.state}}' catchtap='todetail' data-ordernumber="{{item.ordernum}}">
+					<text>订单编号：{{item.ordernum}}</text>
+					<text  wx:if="{{tabindex==1}}">待支付:{{countDownList[index]}}</text>
+					<text class='state'>{{item.statecontent}}</text>
+				</view>
+				<view class='goods flex_sb' data-index='{{index}}' data-state='{{item.state}}' catchtap='todetail' data-ordernumber="{{item.ordernum}}">
+					<block wx:if="{{item.goodsinfo.length == 1}}">
+						<view class="flex flex_center" wx:for='{{item.goodsinfo}}' wx:key="index" wx:for-item='goodsitem'>
+							<image src='{{headimg+goodsitem.topimg}}'></image>
+							<view>
+								<view class="good_name wes_2">{{goodsitem.name}}</view>
+								<view class="good_sku"><text>{{goodsitem.firstspecvalue}}</text><text>{{goodsitem.secondspecvalue}}</text></view>
+							</view>
+						</view>
+					</block>
+					<scroll-view wx:else scroll-x class='goodsitem flex'>
+						<image wx:for='{{item.goodsinfo}}' wx:for-item='goodsitem' src='{{headimg+goodsitem.topimg}}'></image>
+					</scroll-view>
+					<view class='count'>
+						<view wx:if='{{item.score>0}}' class='right'>
+							消耗积分：
+							<text class='realAmount' style='color:#FE8F71'>{{item.score}}</text>
+						</view>
+						<view wx:else class="price_tag">¥
+							<text class="price">{{(item.price)}}</text>
+						</view>
+						<view class="product_count">共{{item.count}}件</view>
+					</view>
+				</view>
+				<view class='btm flex_sb'>
+					<view>下单时间：{{item.createDate}}</view>
+					<view class='btns'>
+						<block wx:if='{{item.state=="NO_PAY"}}'>
+							<view catchtap='cancel' data-ordernum='{{item.ordernum}}' class='cancel'>取消订单</view>
+							<view catchtap='pay' data-item='{{item}}' class='pay'>立即付款</view>
+						</block>
+						<block>
+							<view wx:if='{{item.state=="PAYSUCCESS"||item.state=="RECEIVED"}}' catchtap='refund' data-ordernum='{{item.ordernum}}' class='refund'>退款</view>
+							<view wx:if='{{item.state=="SHIPPED"}}' bindtap='openLogistics' data-item='{{item}}' class='refund'>查看物流</view>
+							<view wx:if='{{item.state=="SHIPPED"}}' catchtap='finishOrder' data-ordernum='{{item.ordernum}}' class='confirm'>确认收货</view>
+						</block>
+					</view>
+				</view>
+			</view>
+		</block>
+	</view>
+	<view wx:else class='nolist'>
+		<text class='t1'>您还没有相关订单</text>
+		<text class='t2'>可以去看看有哪些想买的</text>
+		<text catchtap='tomain' class='btn'>随便逛逛</text>
+	</view>
+	<view class="cancel_modal" wx:if="{{showCancelModal}}">
+		<view class="modal_title">请选择退款原因</view>
+		<view class="reason_list">
+			<view class="reason_item flex_sb" wx:for="{{reasonList}}" data-index="{{index}}" bindtap="selectReason">
+				<view class="label">{{item}}</view>
+				<view class="label_radio {{reason === item ? 'checked':''}}" />
+			</view>
+		</view>
+		<textarea wx:if="{{reason === '其他'}}" fixed class="reason_input" value="{{resonInput}}" bindinput="resonInput" maxLength="200" placeholder="请填入您的原因"></textarea>
+		<view class="modal_btn_wrap flex">
+			<view class="modal_btn flex_1" bindtap="closeModal">我再想想</view>
+			<view class="modal_btn confirm_btn flex_1" bindtap="confirmRefund">确认退款</view>
+		</view>
+	</view>
+	<logisticsModel wx:if="{{showLogistics}}" infoData="{{infoData}}" bind:closemodel="closeLogistics" />
+	<view wx:if="{{showCancelModal}}" class="mask"></view>
+</scroll-view>

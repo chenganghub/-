@@ -1,0 +1,131 @@
+page{
+  background-color: #fff;
+}
+.container {
+  border-top: 1px solid #f7f7f7;
+}
+
+.items {
+  width: 100vw;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+input {
+  text-align: right;
+}
+
+.item {
+  width: 94vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20rpx 0;
+}
+
+.item:not(:last-child) {
+  border-bottom: 1rpx solid #f7f7f7;
+}
+
+.item .left {
+  width: 30rpx;
+  height: 30rpx;
+  transform: rotate(180deg);
+}
+
+.item >text {
+  color: #bebebe;
+}
+
+.item .headview {
+  display: flex;
+  align-items: center;
+}
+
+.item .picker {
+  color: #bebebe;
+  text-align: right;
+}
+
+.item .picker.b {
+  color: #000;
+}
+
+.item image {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  margin-right: 10rpx;
+}
+
+.item.gender>view {
+  display: flex;
+  align-items: center;
+}
+
+.item.gender view view {
+  background: #ebebeb;
+  width: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5rpx;
+  font-size: 26rpx;
+  padding: 8rpx 0;
+}
+
+.item.gender view view:first-child {
+  margin-right: 15rpx;
+}
+
+.item.gender view .c {
+  background: #FECBA4;
+  color: #fff;
+}
+
+picker {
+  width: 45vw;
+}
+
+.item.label {
+  align-items: inherit;
+}
+
+.item.label .labels {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  width: 40vw;
+}
+
+.item .labels .tag {
+  background: #ebebeb;
+  padding: 8rpx 15rpx;
+  font-size: 26rpx;
+  border-radius: 5rpx;
+  margin-top: 12rpx;
+  margin-left: 12rpx;
+}
+
+.item .labels .tag.selecttag {
+  background: #FECBA4;
+  color: #fff;
+}
+
+.btn {
+  position: absolute;
+  bottom: 20rpx;
+  width: 94vw;
+  height: 88rpx;
+  font-size: 30rpx;
+  left: 3vw;
+  border-radius: 44rpx;
+  background: linear-gradient(-90deg, #FE8F71, #FECBA4);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

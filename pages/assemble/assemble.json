@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "login-component": "/components/login/login",
+    "assembleListItem": "/components/assembleListItem/assembleListItem",
+    "modal": "/components/modal/modal",
+   "search":"/components/search/search"
+  }
+}

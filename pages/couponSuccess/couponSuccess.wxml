@@ -1,0 +1,40 @@
+<view class="coupon_success">
+  <view class="get_tips flex_c" style="background-image:url('{{staticimg}}got_bg.png')">
+    <view>
+      <image class="white_gou" src="../pic/white_gou.png"></image>
+      <view>恭喜您领取成功！</view>
+    </view>
+  </view>
+  <view class="more_info flex_sb">
+    <text>继续完善会员资料，立即获得以下权益</text>
+    <view class="complete_btn" bindtap="toCenter">立即完善
+      <image class="go_arrow" src="../pic/go.png"></image>
+    </view>
+  </view>
+  <view class="coupon_content">
+    <view class="coupon_title">每周健康食谱订阅</view>
+    <image class="ad_img" src="{{newCouponData.bgImg}}"></image>
+    <view class="coupon_title">会员专属优惠</view>
+    <view class="coupon_goods flex flex_center">
+      <image class="goods_img" src="{{headimg+newCouponData.goodsOneTopImg}}"></image>
+      <view class="goods_info">
+        <view class="goods_name wes_1">{{newCouponData.goodsOneName}}</view>
+        <view class="goods_price">￥{{newCouponData.goodsOneMPrice}}
+          <text class="old_price">￥{{newCouponData.goodsOnePrice}}</text>
+        </view>
+      </view>
+    </view>
+    <view class="coupon_goods flex flex_center">
+      <image class="goods_img" src="{{headimg+newCouponData.goodsTwoTopImg}}"></image>
+      <view class="goods_info">
+        <view class="goods_name wes_1">{{newCouponData.goodsTwoName}}</view>
+        <view class="goods_price">￥{{newCouponData.goodsTwoMPrice}}
+          <text class="old_price">￥{{newCouponData.goodsTwoPrice}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="btn_wrap {{isIphoneX ? 'fix-iphonex-button' : ''}}">
+    <button class="use_btn" bindtap="goHome">马上使用优惠卷</button>
+  </view>
+</view>

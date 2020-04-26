@@ -1,0 +1,6 @@
+<!--components/assembleEmpty/assembleEmpty.wxml-->
+<view class="assemble_empty">
+  <image src="../pages/pic/empty1.png" mode="aspectFit" class="assemble_empty_img"></image>
+  <view class="assemble_empty_text">你还没有拼团中的商品~</view>
+  <view class="assemble_empty_btn">去拼团</view>
+</view>

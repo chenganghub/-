@@ -1,0 +1,112 @@
+<view class='container'>
+  <view class="items">
+
+    <!-- 头像 -->
+    <view class="item">
+      <text>头像</text>
+      <view class="headview" bindtap="uploadImg">
+        <image src="{{userImg[0]}}"></image>
+        <image class="left" src="../pic/left.png"></image>
+      </view>
+    </view>
+    <!-- 姓名 -->
+
+    <view class="item">
+      <text>姓名</text>
+      <view>
+      <input bindinput="input" value="{{realname}}" data-prop='realname'></input>
+        <!-- <image src="../../pic/left.png"></image> -->
+      </view>
+    </view>
+    <!-- 昵称 -->
+    <view class="item">
+      <text>昵称</text>
+      <view>
+      <input bindinput="input" value="{{nickname}}" data-prop='nickname'></input>
+      </view>
+    </view>
+
+    <view class="item">
+
+      <text>出生日期</text>
+      <view>
+        <picker mode="date" value="{{born}}" end="{{enddate}}" bindchange="bindDateChange">
+          <view class="picker b" wx:if="{{showborn}}">
+            {{born}}
+          </view>
+          <view class="picker" wx:else>
+            请选择
+          </view>
+        </picker>
+      </view>
+    </view>
+
+    <view class="item gender">
+      <text>性别</text>
+      <view>
+        <view class="{{gender=='M'?'c':''}}" catchtap="gendertap" data-code='M'>男</view>
+        <view class="{{gender=='W'?'c':''}}" catchtap="gendertap" data-code='W'>女</view>
+      </view>
+    </view>
+
+    <view class="item">
+      <text>所在地区</text>
+      <view>
+        <picker mode="region" value="{{region}}" bindchange="bindregionChange">
+          <view class="picker b" wx:if="{{showregion}}">
+            {{region[0]}},{{region[1]}},{{region[2]}}
+          </view>
+          <view class="picker" wx:else>
+            请选择
+          </view>
+        </picker>
+      </view>
+    </view>
+
+
+    <view class="item">
+
+      <text>家庭人数</text>
+      <view>
+        <picker range='{{familyarr}}' value="{{familyindex}}" bindchange="bindfamilyChange">
+          <view class="picker b" wx:if="{{showfamily}}">
+            {{familyarr[familyindex]}}
+          </view>
+          <view class="picker" wx:else>
+            请选择
+          </view>
+        </picker>
+      </view>
+    </view>
+
+    <view class="item">
+      <text>怎么评价自己的厨艺</text>
+      <view>
+        <picker range='{{appraisalarr}}' value="{{appraisalindex}}" bindchange="bindappraisalChange">
+          <view class="picker b" wx:if="{{showappraisal}}">
+            {{appraisalarr[appraisalindex]}}
+          </view>
+          <view class="picker" wx:else>
+            请选择
+          </view>
+        </picker>
+      </view>
+    </view>
+
+
+   <view class="item label">
+      <text>兴趣标签</text>
+      <view class="labels">
+      	<block wx:for='{{taglist}}'>
+					<view class='tag {{item.issel==true?"selecttag":""}}' data-id="{{item.id}}" catchtap="selecttags">
+						{{item.name}}
+					</view>
+				</block>
+    </view>
+  </view>
+    </view>
+
+    <view class="btn" catchtap="save">保存</view>
+
+
+</view>

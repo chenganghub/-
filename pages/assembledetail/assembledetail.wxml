@@ -1,0 +1,174 @@
+<import src="../../wxParse/wxParse.wxml" />
+<view class="container">
+	<view class="detailcontent">
+		<view class="position">
+			<!-- 轮播start -->
+			<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="{{indicatorColor}}" indicator-active-color="{{activeColor}}" circular="{{circular}}">
+				<block wx:for="{{imgarr}}" wx:key='{{item.index}}'>
+					<swiper-item>
+						<image src="{{item}}" class="slide-image" />
+					</swiper-item>
+				</block>
+			</swiper>
+			<!-- 轮播start -->
+			<!-- 拼团 -->
+			<view class="assemble">
+				<view class="assembleleft">
+					<image src="../pic/spell.png"></image>
+					<view>
+						<text>商品参加拼团活动，快来参加！</text>
+						<view class="time">距结束：<text>147</text>:<text>06</text>:<text>17</text>:<text>39</text></view>
+					</view>
+				</view>
+				<view class="immediately">立即开团</view>
+			</view>
+			<!-- end 拼团 -->
+		</view>
+		<view class="goodcontent">
+			<view class="goodName"><text>{{2}}人团</text>{{name}}</view>
+			<view class="goodSituation">
+				<text>￥ {{promotionprice}}</text>
+				<text>￥ {{price}}</text>
+				<text>库存： {{stock}}</text>
+			</view>
+			<view class="shippingMethod">
+				<view class="shipping">
+					<image src="../pic/icon-gou.png"></image>
+					<text>门店自取</text>
+				</view>
+				<view class="shipping">
+					<image src="../pic/icon-gou.png"></image>
+					<text>商家配送</text>
+				</view>
+			</view>
+		</view>
+
+		<view class="choice" catchtap="choicetap">
+			<view class="choicePiece" catchtap="choicetap">
+				<text>选择</text>
+				<text>{{count}}</text>
+				<text>{{goodsunit}}</text>
+			</view>
+			<image src="../pic/left.png"></image>
+		</view>
+		<!-- 正在拼团 -->
+		<view class="beingpt">
+			<view class="morebox">
+				<text>{{1}}人正在拼团，可直接参团</text>
+				<view>
+					<text class="more">查看更多</text>
+					<image src="../pic/left.png"></image>
+				</view>
+			</view>
+			<view class="beingitem">
+				<view class="beingitemleft">
+					<image src="../pic/empty.png"></image>
+					<view>莫斯春</view>
+				</view>
+				<view class="beingitemright">
+					<view class="surplustime">
+						<view>还差<text>{{1}}人</text>成团</view>
+						<view class="surplus">剩余<text>{{"23:56:45.3"}}</text></view>
+					</view>
+					<text class="tojoin">立即参加</text>
+				</view>
+			</view>
+		</view>
+		<!-- end 正在拼团 -->
+		<view class="freight" bindtap="checkfreight">
+			<view class="freightText">
+				<text>运费</text>
+				<text>点击查看</text>
+			</view>
+			<image src="../pic/left.png"></image>
+		</view>
+		<view class="sendto" bindtap="receivingAddress">
+			<view class="sendtoText">
+				<text>送至</text>
+			</view>
+			<view class="sendtoadress">
+				<image src="../pic/new_location.png"></image>
+				<text>{{address||"请选择收获地址"}}</text>
+			</view>
+			<image class="img" src="../pic/left.png"></image>
+		</view>
+		<view wx:if='{{false}}' class="evaluate">
+			<view class="evaluateText">
+				<image src="../pic/changfangxing.png"></image>
+				<text>评价</text>
+				<text>(0)</text>
+			</view>
+		</view>
+		<view class="details">
+			<view class="detailsText">
+				<image src="../pic/changfangxing.png"></image>
+				<text>商品详情</text>
+			</view>
+			<view class="goodsDetail">
+				<template is="wxParse" data="{{wxParseData:article.nodes}}" />
+			</view>
+		</view>
+	</view>
+	<!-- 底部start -->
+	<view class="position_bottom">
+		<view class="detail_bottom">
+			<view class="bottom">
+				<view class="bottom_icon">
+					<image src="../pic/serve.png"></image>
+					<text>客服</text>
+				</view>
+				<view class="bottom_icon" catchtap="collectiongoods" data-id="{{id}}">
+
+					<image src="../pic/{{iscollect?'shoucang':'shoucang2'}}.png"></image>
+					<text>{{iscollect?'已收藏':'收藏'}}</text>
+				</view>
+				<view catchtap="tocart" class="bottom_icon">
+					<image src="../pic/shopping_car.png"></image>
+					<text>购物车</text>
+				</view>
+			</view>
+			<view class="addCart" catchtap="btntap" data-code='1'>加入购物车</view>
+			<view class="bayNow" catchtap="btntap" data-code='2'>立即购买</view>
+		</view>
+	</view>
+	<!-- 底部end -->
+	<view wx:if='{{showchose}}' class='sizewrap'>
+		<view catchtap="closechose" class='mask'></view>
+		<view class='white' style='animation:{{anim}}'>
+			<view class='top'>
+				<image class='thumb' src="{{topimg}}"></image>
+				<view class='topword'>
+					<text>￥{{promotionprice*count}}</text>
+					<text>库存：{{stock}}</text>
+					<text>已选：{{count}},共{{count}}{{goodsunit}}</text>
+				</view>
+				<view catchtap='closechose' class='close'>
+					<image src="../pic/close.png"></image>
+				</view>
+			</view>
+			<scroll-view>
+				<view class='kc'>
+					<!-- <text>尺码</text>
+          <view class='items'>
+            <block wx:for='{{target.sizelist}}'>
+            <text catchtap='sizetap' data-kc='{{item.kc}}' data-index='{{index}}' data-sindex='{{item.index}}' class='{{sizeindex==index?"check":""}}'>{{item.content}}({{item.kc}})</text>
+            </block>
+          </view> -->
+					<view class='count'>
+						<text>数量</text>
+						<view class='btn'>
+							<view>
+								<text catchtap='counttap' data-code='0'>-</text>
+								<text>{{count}}</text>
+								<text catchtap='counttap' data-code='1'>+</text>
+							</view>
+						</view>
+					</view>
+					<view class='confirm' bindtap='sizeconfirm'>确定</view>
+				</view>
+			</scroll-view>
+		</view>
+
+	</view>
+</view>
+<button class="btn_contact" open-type="contact"></button>

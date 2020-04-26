@@ -1,0 +1,22 @@
+<!--pages/memberEquity/memberEquity.wxml-->
+<view class="container">
+  <view class="container_box">
+    <!-- 会员等级 -->
+    <memberLevel gradeId="{{user.gradeId}}" growthName="{{user.growthName}}" userGrowth="{{user.userGrowth}}" maxGrowth="{{user.maxGrowth}}" difference="{{user.difference}}" nextGradeName="{{user.nextGradeName}}"></memberLevel>
+    <!-- end -->
+    <view class="container_box_content">
+      <view class="container_box_content_title">升级会员享受更多权益</view>
+      <view class="container_box_content_table">
+        <block wx:for="{{levels}}">
+          <view class="container_box_content_table_column {{user.gradeId === item.id ? 'active' : ''}}">
+            <view class="item title">{{item.name}}</view>
+            <view class="item" wx:for="{{length}}" wx:for-item="x" wx:for-index="i" data-id="{{item.Equities[i]['id']}}">{{item.Equities[i]['name']}}</view>
+          </view>
+        </block>
+
+      </view>
+      <image src="/pages/pic/bg.png" mode="aspectFit"></image>
+
+    </view>
+  </view>
+</view>

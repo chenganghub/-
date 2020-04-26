@@ -1,0 +1,20 @@
+<!--components/memberLevel.wxml-->
+<view class="container_box_top">
+  <image src="/pages/pic/vipcaed_bg.png" class="vipcaed_bg" mode="aspectFit"></image>
+
+  <view class="container_box_top_name flex_sb">
+    <view class="flex_left">
+      <image src="/pages/pic/vip.png"></image>
+      <text>{{growthName}}</text>
+    </view>
+    <text class="rule_btn" bindtap="toMemberRules">会员规则</text>
+  </view>
+  <view class="container_box_top_progress progress" id="progress">
+    <view style="width: {{growthPx}}px"></view>
+  </view>
+  <view class="container_box_top_level">
+    <view class="left">
+      <text>{{userGrowth}}</text>/{{maxGrowth}}</view>
+    <view class="right">您还需要{{difference}}成长值即可升级为{{nextGradeName}}会员</view>
+  </view>
+</view>

@@ -1,0 +1,100 @@
+/* pages/memberDuty/memberDuty.wxss */
+
+.container {
+  background: #f8f9fb;
+  height: 100%;
+}
+
+.container .container_member_sign {
+  margin: 30rpx auto 0;
+  width: 710rpx;
+  background: #fff;
+  border-radius: 12rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 36rpx 27rpx;
+  box-sizing: border-box;
+  z-index: 100;
+  position: relative;
+  box-shadow: 0 0 20rpx #0000000c;
+}
+
+.container .container_member_sign .container_member_sign_content {
+  flex: 3;
+  display: flex;
+  align-items: center;
+}
+
+.container .container_member_sign .container_member_sign_content >text {
+  font-size: 28rpx;
+  color: #363636;
+  font-weight: bold;
+  margin-left: 28rpx;
+}
+
+.container .container_member_sign image {
+  width: 50rpx;
+  height: 56rpx;
+}
+
+.container .container_member_sign button {
+  width: 120rpx;
+  height: 48rpx;
+  color: #fff;
+  background-image: linear-gradient(-90deg, rgba(77, 103, 250, 1), rgba(92, 150, 253, 1));
+  font-size: 24rpx;
+  line-height: 48rpx;
+  border-radius: 24rpx;
+}
+
+.container .container_member_duty {
+  width: 710rpx;
+  margin: 20rpx auto;
+  background: #fff;
+  padding: 30rpx;
+  box-sizing: border-box;
+  box-shadow: 0 0 20rpx #0000000c;
+  border-radius: 12rpx;
+}
+
+.container .container_member_duty .container_member_duty_title {
+  padding-bottom: 30rpx;
+  color: #010101;
+  font-weight: bold;
+  font-size: 36rpx;
+  border-bottom: 1px solid #eee;
+}
+
+.container .container_member_duty .container_member_duty_item {
+  margin: 29rpx 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container .container_member_duty .container_member_duty_item button {
+  width: 120rpx;
+  height: 48rpx;
+  color: #fff;
+  background-image: linear-gradient(-90deg, rgba(254, 143, 113, 1), rgba(254, 203, 164, 1));
+  font-size: 24rpx;
+  line-height: 48rpx;
+  border-radius: 24rpx;
+}
+
+.container .container_member_duty .container_member_duty_item button.finished {
+  background: #ddd;
+}
+
+.container .container_member_duty .container_member_duty_item .container_member_duty_item_left view:nth-child(1) {
+  color: #363636;
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+.container .container_member_duty .container_member_duty_item .container_member_duty_item_left view:nth-child(2) {
+  color: #888;
+  font-size: 24rpx;
+  margin-top: 10rpx;
+}

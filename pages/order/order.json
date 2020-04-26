@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "logisticsModel": "/components/logisticsModel/logisticsModel"
+  },
+  "navigationBarTitleText": "我的订单"
+}

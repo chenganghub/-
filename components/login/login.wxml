@@ -1,0 +1,9 @@
+<block>
+  <view class="login_modal flex_column flex_c">
+    <image class="icon" src="../../pages/pic/logo.jpg"></image>
+    <view class="title">千禾Club</view>
+    <button class="login_btn" wx:if="{{showInfoBtn}}" open-type="getUserInfo" bindgetuserinfo="_onGotUserInfo">微信授权</button>
+    <button class="login_btn" wx:if="{{showPhoneBtn}}" open-type="getPhoneNumber" bindgetphonenumber="_getPhoneNumber">微信登录</button>
+  </view>
+  <view class="mask" bindtap="_closeModal"></view>
+</block>

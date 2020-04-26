@@ -1,0 +1,85 @@
+page {
+  background-color: #fff;
+}
+
+.foodDetail_container .dishesimage {
+  width: 70vw;
+  height: 50vw;
+  left: 15vw;
+  top: 98rpx;
+  position: absolute;
+}
+
+.foodDetail_container .dishes_content {
+  position: absolute;
+  top: 548rpx;
+  padding: 0 30rpx;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.foodDetail_container .title_wrap {
+  position: relative;
+  height: 50rpx;
+}
+
+.foodDetail_container .title_line {
+  position: absolute;
+  height: 10rpx;
+  background: rgba(254, 203, 164, 1);
+  left: 0;
+  bottom: 0;
+}
+
+.foodDetail_container .dishes_content .dishes_title {
+  position: absolute;
+  font-size: 36rpx;
+  font-weight: bold;
+  z-index: 2;
+}
+
+.foodDetail_container .descript_con {
+  margin-top: 30rpx;
+  height: calc(100vh - 750rpx);
+  overflow-y: scroll;
+  font-size: 28rpx;
+  color: #888;
+}
+
+.foodDetail_container .dishesWrap {
+  height: 580rpx;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+}
+
+.foodDetail_container .dishesbtn {
+  position: fixed;
+  bottom: 0;
+  padding: 16rpx 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid #e5e5e5;
+  background-color: #fff;
+}
+
+.foodDetail_container .dishesbtn text {
+  width: 690rpx;
+  height: 88rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(-90deg, rgba(254, 143, 113, 1), rgba(254, 203, 164, 1));
+  border-radius: 44rpx;
+  color: white;
+}
+
+.foodDetail_container .bottom_bg {
+  position: fixed;
+  left: 0;
+  bottom: 120rpx;
+  width: 100%;
+  height: 188rpx;
+}
